@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+
+    
+
+    
+
+    <title>封装自己的插件模块 | MItheme</title>
+    <meta name="author" content="mitheme">
+    <meta name="version" content="1.0.0">
+    <meta name="keywords" content>
+    <meta name="description" content="如果你对maml编程有一定的了解，你还可以在官方编辑器的基础上添加更多的控件，封装自己的本地代码，方便下次调用。具体maml教程不在这里讲解，你可以点击这里查看MAML教程，这里只讲解插件的封装方式插件的结构自己DIY的插件放在编辑器根目录下plugins目录内，如果是锁屏使用的插件则放到plugins/lockscreen/advance目录下（跟主题包构成一致）如图每个插件至少包含一个description.xml插件描述文件，manifest.xml插件...">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    
+    <link rel="alternate" href="/atom.xml" title="MItheme" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <main class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">MItheme</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/guide/">
+                <span class="nav-text">入门</span>
+            </a>
+        
+            <a class="nav-item" href="/maml/">
+                <span class="nav-text">语法</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/tutorials">
+                <span class="nav-text">实例</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frame">
+                <span class="nav-text">界面</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/notice">
+                <span class="nav-text">公告</span>
+            </a>
+        
+            <a class="nav-item" href="/shenhe">
+                <span class="nav-text">审核</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <!-- <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value=""></form> -->
+        <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/local_search.js"></script>
+<script type="text/javascript">      
+	var search_path = "search.xml";
+	if (search_path.length == 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+
+
+
+
+
+<style type="text/css">
+/**
+  *放置input的div盒子
+  *1.此处应我的项目需要，加了些特别的设置，如字体、背景色等，按需添加；
+  *2.内层input不加边框，看起来效果会自然一点，所以外层div设置了边框和圆角
+*/
+.searchbox{
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 6px;
+    margin:30px;
+}
+
+
+
+/**
+  *input标签样式
+  *宽度适应外层div
+  *隐藏边框
+  *这里有个小技巧，height与line-height值相等，可保证文字垂直居中；但我发现文字比图标略偏下，进行了微调；
+*/
+.searchbox input{
+    text-indent: 30px;
+    height: 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+}
+
+/**
+  *图标样式
+  *绝对定位，自定义颜色
+*/
+.searchbox i{
+    position: absolute;
+    top: 39px;
+    left: 85px;
+    margin-left: -15%;
+    color: #B2B2B2;
+}
+</style>
+
+
+<div class="searchbox">
+    <form class="site-search-form">
+    	<input type="text" id="local-search-input" class="st-search-input" placeholder="Search">
+		<i class="icon-search-stroke"></i>
+	</form>
+</div>	
+
+<div id="local-search-result" class="local-search-result-cls"></div>
+
+
+
+
+        
+
+
+
+
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#插件的结构"><span class="toc-number">1.</span> <span class="toc-text">插件的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#脚本的编写"><span class="toc-number">2.</span> <span class="toc-text">脚本的编写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用实例"><span class="toc-number">3.</span> <span class="toc-text">应用实例</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+<article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            封装自己的插件模块
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<a class="article-date" href="/modular/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-04-06T06:32:18.000Z" itemprop="datePublished">2019-04-06</time>
+</a>
+
+
+
+<i class="icon-user-stroke" style="color: #999;margin-left: 25px"></i>
+ <font color="#999">阅读量：<span id="busuanzi_value_page_pv"></span></font>
+
+
+
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/MAML算法实例/">MAML算法实例</a>
+</div>
+
+
+        </div>
+    </header>
+    
+
+    
+
+
+
+
+    <section class="article-body markdown-body">
+        
+        <br>
+<img src="https://gitee.com/mitheme/image/raw/master/banner5.svg" style="width:100%;">
+
+<p>如果你对maml编程有一定的了解，你还可以在官方编辑器的基础上添加更多的控件，封装自己的本地代码，方便下次调用。具体maml教程不在这里讲解，你可以<a href="/maml/">点击这里</a>查看MAML教程，这里只讲解插件的封装方式</p>
+<a id="more"></a>
+
+
+<h3 id="插件的结构"><a href="#插件的结构" class="headerlink" title="插件的结构"></a>插件的结构</h3><p>自己DIY的插件放在编辑器根目录下plugins目录内，如果是锁屏使用的插件则放到plugins/lockscreen/advance目录下（跟主题包构成一致）</p>
+<!-- ![image](https://gitee.com/dzzzw/tutorial_material/raw/master/Catalog.jpg) -->
+
+<img src="https://gitee.com/dzzzw/tutorial_material/raw/master/Catalog.jpg" height="150">
+
+
+
+
+<p>如图每个插件至少包含一个description.xml插件描述文件，manifest.xml插件脚本，preview插件预览图文件夹，内部预览图命名为preview_0.png preview_1.png等（暂不生效），其余用到的素材建议放到一个以该插件文件夹名称拼接_src后缀的文件夹内，假设该插件文件夹为WeatherCard，资源文件夹名称为WeatherCard_src，这样避免跟其他插件资源互相覆盖</p>
+<p>description.xml 编写格式如下</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">MIUI-Theme</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>天气卡片<span class="tag">&lt;/<span class="name">title</span>&gt;</span> // 用于在编辑器内显示的插件名称</span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span> //插件版本号</span><br><span class="line">  <span class="tag">&lt;<span class="name">description</span>&gt;</span>一个简单的天气卡片<span class="tag">&lt;/<span class="name">description</span>&gt;</span> //插件的描述</span><br><span class="line">  <span class="tag">&lt;<span class="name">owner</span>&gt;</span>lockscreenOthers<span class="tag">&lt;/<span class="name">owner</span>&gt;</span> //插件归属</span><br><span class="line"><span class="tag">&lt;/<span class="name">MIUI-Theme</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意插件必须填写插件的归属（owner参数），通过定义不同归属，确定插件在编辑器哪个位置显示</p>
+<p>插件归属列表如下</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>编辑器对应位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>lockscreenClock</td>
+<td>锁屏-锁屏时钟</td>
+</tr>
+<tr>
+<td>lockscreenFrame</td>
+<td>锁屏-锁屏框架</td>
+</tr>
+<tr>
+<td>lockscreenNotice</td>
+<td>锁屏-锁屏通知</td>
+</tr>
+<tr>
+<td>lockscreenWallpaper</td>
+<td>锁屏-壁纸-百变壁纸</td>
+</tr>
+<tr>
+<td>lockscreenMusic</td>
+<td>锁屏-锁屏音乐</td>
+</tr>
+<tr>
+<td>lockscreenOthers</td>
+<td>锁屏-其他</td>
+</tr>
+<tr>
+<td>desktopClock</td>
+<td>桌面-桌面时钟</td>
+</tr>
+<tr>
+<td>desktopWallpaper</td>
+<td>桌面-百变壁纸</td>
+</tr>
+<tr>
+<td>iconCalendar</td>
+<td>桌面-图标-动态日历</td>
+</tr>
+<tr>
+<td>iconClock</td>
+<td>桌面-图标-动态时钟</td>
+</tr>
+<tr>
+<td>iconWeather</td>
+<td>桌面-图标-动态天气</td>
+</tr>
+</tbody></table>
+<p><br><br></p>
+<h3 id="脚本的编写"><a href="#脚本的编写" class="headerlink" title="脚本的编写"></a>脚本的编写</h3><p>manifest.xml 内是插件的的逻辑脚本，当你写好一个功能后，你可以吧你写好的功能制作成一个你个人的插件，跟之前写锁屏方法一样，但须声明可修改的参数用于编辑器对参数进行修改。</p>
+<p><strong>1、参数的传递</strong><br>定义一个ValueHolder标签来进行插件与编辑器参数的传递，例如</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Valueholder</span> <span class="attr">name</span>=<span class="string">"valueholder_x"</span>   <span class="attr">type</span>=<span class="string">"param"</span> <span class="attr">description</span>=<span class="string">"x坐标"</span> <span class="attr">defaultValue</span>=<span class="string">"100"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ValueHolder</span> <span class="attr">name</span>=<span class="string">"valueholder_src"</span> <span class="attr">type</span>=<span class="string">"bitmap"</span> <span class="attr">description</span>=<span class="string">"图标背景"</span> <span class="attr">defaultValue</span>=<span class="string">"a.png"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ValueHolder</span> <span class="attr">name</span>=<span class="string">"valueholder_id"</span> <span class="attr">type</span>=<span class="string">"bitmaps"</span> <span class="attr">description</span>=<span class="string">"图标数字"</span> <span class="attr">defaultValue</span>=<span class="string">"b.png"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中：<br>name为需要传递参数的名称，此名称绑定到后续的变量或代码段内，必须以valueholder_aaa这样的方式命名。<br>type为参数的类型，详见下表。<br>description 为参数的描述，编辑器中根据这个参数来显示对应参数的名称<br>defaultValue为默认参数，不做任何修改时调用默认参数</p>
+<table>
+<thead>
+<tr>
+<th>type类型</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>param</td>
+<td>参数为param时，可通过在编辑器中对应参数输入框的中修改数值或字符串，也可在编辑器中写入表达式或引用外部变量</td>
+</tr>
+<tr>
+<td>bitmap</td>
+<td>参数为bitmap时，对应修改编辑器中图片资源，在编辑器中对应位置拖入需要替换的资源即可</td>
+</tr>
+<tr>
+<td>bitmaps</td>
+<td>参数为bitmaps时，对应图片序列，例如时间调用的time_0.png time_1.png等，可以批量替换对应的资源</td>
+</tr>
+</tbody></table>
+<p>在编辑器上对应关系如图</p>
+<img src="https://gitee.com/mitheme/image/raw/master/plugins.jpg">
+
+
+
+<p>插件内部通过如下代码，绑定上面声明的参数</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Image</span> <span class="attr">x</span>=<span class="string">"valueholder_x"</span>  <span class="attr">src</span>=<span class="string">"valueholder_src"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Image</span> <span class="attr">src</span>=<span class="string">"valueholder_id"</span> <span class="attr">srcid</span>=<span class="string">"(#time/100)%10"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>当编辑器应用主题后会自动把编辑器设定的参数替换进最终的manifest里，生成如下代码</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Image</span> <span class="attr">x</span>=<span class="string">"100"</span>  <span class="attr">src</span>=<span class="string">"a.png"</span> /&gt;</span>// 此为默认参数，当修改参数时会自动传递进来修改好的参数</span><br><span class="line"><span class="tag">&lt;<span class="name">Image</span>  <span class="attr">src</span>=<span class="string">"b.png"</span> <span class="attr">srcid</span>=<span class="string">"(#time/100)%10"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：在编辑器修改相关参数后会把修改后的参数传递进来，无修改时调用defaultValue设定的默认参数，图片只替换资源，不会修改路径，编辑器中第一次插入插件时会把插件内默认的图片资源拷贝进主题包，删除插件时会把相关资源也删除。</p>
+<br>
+
+<p><strong>2、变量自动重命名</strong><br>如果我们一次使用多个插件，此时我们需要确保插件内变量的名称不重名，避免造成互相干扰，我们可以定义一个NameHolde标签，此标签用于声明插件内哪些字符需要被批量修改名称，声明的字符会自动替换成一个新的唯一的名称，替换规则为<br>插件名+原定义的变量名称<br>例如在manifest.xml首先插入一个NameHolde标签</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">NameHolder</span> <span class="attr">name</span>=<span class="string">"nameholder_test"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>下面为我们需要自动替换名称的变量，我们把这个变量命名为上面NameHolder定义的名称nameholder_test</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Var</span> <span class="attr">name</span>=<span class="string">"nameholder_test"</span> <span class="attr">expression</span>=<span class="string">"1"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>编辑器合成代码后会自动把<code>nameholder</code>字段替换为插件的名称，生成后的变量名如下（假设插件名称为clock）</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Var</span> <span class="attr">name</span>=<span class="string">"clock_test"</span> <span class="attr">expression</span>=<span class="string">"1"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> 这样生成后的变量名称就被自动替换了，在插件内其他地方引用这个变量时直接引用#nameholder_test，导出主题时也会自动被替换为#clock_test，外部其他插件或手写代码要引用这个变量时也可以通过引用#clock_test来调用</p>
+<br>
+
+<p><strong>3、插件与自己原来手写的代码混合开发</strong><br> 如果我们想自己写一部分代码，又想和编辑器内的插件混合开发是否可行呢，完全可行。</p>
+<ul>
+<li>如果我们想把某个插件的代码添加到锁屏manifest.xml的代码中间指定的位置，我们可以在那个位置写入一个<code>&lt;PlaceHolder/&gt;</code>标签，应用主题后插件代码会自动添加到<code>&lt;PlaceHolder/&gt;</code>标签所在的位置</li>
+<li>假设我们在锁屏添加了3个插件，我们可以在manifest不同位置写入三个<code>&lt;PlaceHolder/&gt;</code>标签，一个标签对应一个插件，每个<code>&lt;PlaceHolder/&gt;</code>标签对应的插件跟编辑器中插件图层的顺序一致，例如第一个<code>&lt;PlaceHolder/&gt;</code>标签对应的是编辑器中插入的第一个插件，第二个<code>&lt;PlaceHolder/&gt;</code>标签对应编辑器内插入的第二个插件，以此类推。</li>
+<li><code>&lt;PlaceHolder/&gt;</code>标签少写或不写时，多出来的插件会自动插入到原manifest.xml代码的最后面，多写时会自动忽略多写的<code>&lt;PlaceHolder/&gt;</code>标签。</li>
+</ul>
+<br>
+**4、几个注意点**
+
+<ul>
+<li><code>&lt;ValueHolder/&gt; &lt;NameHolder/&gt;</code>两个个标签的内容只是用于插件脚本与编辑器通信，通过编辑器修改参数后相关记录会保存到主题包根目录的plugin_config.xml文件里，下次再打开主题时会从那个文件里读取插件的相关记录（19.3.29版本生效）</li>
+<li>我们在编辑器中修改图片序列的资源时，需要把图片命名为 xx_0.png,xx_1.png ,xx_2.png…依次类推（不一定跟原素材名称一样，但需要带上下划线与后面的数字，素材根据后面的数字自动匹配替换的资源），替换时把命名好的图片拉进编辑器即可，非图片序列的图片无需特殊命名</li>
+<li>用编辑器导出主题时，主题包会把原来自己手写的manifest.xml文件备份为 tag_manifest.xml文件，同时生成一个origin_manifest.xml文件，原来的manifest文件被替换为合成所有插件后的脚本文件，能直接被手机识别。<br>其中origin_manifest.xml不会合成官方内置插件（编辑器data目录下的插件）但会保留插入插件的标签，后续可以通过在线对origin_manifest.xml文件进行二次线上合成来进行插件的批量升级。外置插件（编辑器根目录下的plugins文件夹内的插件）则会完整的合成到origin_manifest.xml里。<br>tag_manifest.xml是你原来manifest.xml的备份，下次用编辑器打开时会用tag_manifest.xml恢复成manifest.xml，恢复你代码初始模样，方便二次修改。</li>
+</ul>
+<p><br><br></p>
+<h3 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h3><p>下面是一份简单的动态天气图标插件实例</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Icon</span> <span class="attr">frameRate</span>=<span class="string">"0"</span> <span class="attr">height</span>=<span class="string">"182"</span> <span class="attr">screenWidth</span>=<span class="string">"1080"</span> <span class="attr">useVariableUpdater</span>=<span class="string">"DateTime.Hour"</span> <span class="attr">version</span>=<span class="string">"1"</span> <span class="attr">width</span>=<span class="string">"182"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">NameHolder</span> <span class="attr">name</span>=<span class="string">"nameholder_id"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">NameHolder</span> <span class="attr">name</span>=<span class="string">"nameholder_temperature"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ValueHolder</span> <span class="attr">name</span>=<span class="string">"valueholder_iconBg"</span> <span class="attr">type</span>=<span class="string">"bitmap"</span> <span class="attr">description</span>=<span class="string">"图标背景"</span> <span class="attr">defaultValue</span>=<span class="string">"IconWeather2_src/iconBg.png"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ValueHolder</span> <span class="attr">name</span>=<span class="string">"valueholder_src"</span> <span class="attr">type</span>=<span class="string">"bitmaps"</span> <span class="attr">description</span>=<span class="string">"天气图标"</span> <span class="attr">defaultValue</span>=<span class="string">"IconWeather2_src/weather.png"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ValueHolder</span> <span class="attr">name</span>=<span class="string">"valueholder_iconX"</span> <span class="attr">type</span>=<span class="string">"param"</span> <span class="attr">description</span>=<span class="string">"图标x坐标"</span> <span class="attr">defaultValue</span>=<span class="string">"91"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ValueHolder</span> <span class="attr">name</span>=<span class="string">"valueholder_iconY"</span> <span class="attr">type</span>=<span class="string">"param"</span> <span class="attr">description</span>=<span class="string">"图标y坐标"</span> <span class="attr">defaultValue</span>=<span class="string">"70"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ValueHolder</span> <span class="attr">name</span>=<span class="string">"valueholder_x"</span> <span class="attr">type</span>=<span class="string">"param"</span> <span class="attr">description</span>=<span class="string">"温度x坐标"</span> <span class="attr">defaultValue</span>=<span class="string">"95"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ValueHolder</span> <span class="attr">name</span>=<span class="string">"valueholder_y"</span> <span class="attr">type</span>=<span class="string">"param"</span> <span class="attr">description</span>=<span class="string">"温度y坐标"</span> <span class="attr">defaultValue</span>=<span class="string">"110"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ValueHolder</span> <span class="attr">name</span>=<span class="string">"valueholder_color"</span> <span class="attr">type</span>=<span class="string">"param"</span> <span class="attr">description</span>=<span class="string">"温度文字颜色"</span> <span class="attr">defaultValue</span>=<span class="string">"#ffffff"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ValueHolder</span> <span class="attr">name</span>=<span class="string">"valueholder_size"</span> <span class="attr">type</span>=<span class="string">"param"</span> <span class="attr">description</span>=<span class="string">"温度文字大小"</span> <span class="attr">defaultValue</span>=<span class="string">"28"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">VariableBinders</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ContentProviderBinder</span> <span class="attr">uri</span>=<span class="string">"content://weather/weather"</span> <span class="attr">columns</span>=<span class="string">"weather_type,temperature"</span> <span class="attr">countName</span>=<span class="string">"hasweather"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Variable</span> <span class="attr">name</span>=<span class="string">"nameholder_temperature"</span> <span class="attr">type</span>=<span class="string">"int"</span> <span class="attr">column</span>=<span class="string">"temperature"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Variable</span> <span class="attr">name</span>=<span class="string">"nameholder_id"</span> <span class="attr">type</span>=<span class="string">"int"</span> <span class="attr">column</span>=<span class="string">"weather_type"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Trigger</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">VariableCommand</span> <span class="attr">name</span>=<span class="string">"nameholder_id"</span> <span class="attr">expression</span>=<span class="string">"ifelse((#nameholder_id&#125;25||#nameholder_id&#123;0), 0 ,(#nameholder_id&#125;=4**#nameholder_id&#123;=6||#nameholder_id&#125;=8**#nameholder_id&#123;=11||#nameholder_id==25), 4 ,#nameholder_id&#125;=13**#nameholder_id&#123;=17, 13 ,#nameholder_id&#125;=18**#nameholder_id&#123;=21||#nameholder_id==23, 18 ,#nameholder_id)"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Trigger</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ContentProviderBinder</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">VariableBinders</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Image</span> <span class="attr">x</span>=<span class="string">"91"</span> <span class="attr">y</span>=<span class="string">"91"</span> <span class="attr">src</span>=<span class="string">"valueholder_iconBg"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">alignV</span>=<span class="string">"center"</span>  /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Image</span> <span class="attr">x</span>=<span class="string">"valueholder_iconX"</span> <span class="attr">y</span>=<span class="string">"valueholder_iconY"</span> <span class="attr">src</span>=<span class="string">"valueholder_src"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">alignV</span>=<span class="string">"center"</span> <span class="attr">srcid</span>=<span class="string">"#nameholder_id"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Text</span> <span class="attr">x</span>=<span class="string">"valueholder_x"</span> <span class="attr">y</span>=<span class="string">"valueholder_y"</span>  <span class="attr">color</span>=<span class="string">"valueholder_color"</span> <span class="attr">size</span>=<span class="string">"valueholder_size"</span> <span class="attr">textExp</span>=<span class="string">"#nameholder_temperature+'°'"</span> <span class="attr">align</span>=<span class="string">"center"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Icon</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+        
+    </section>
+</article>
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+
+
+
+    <!--Leancloud 操作库:-->
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <!--Valine 的核心代码库:-->
+    <script src="//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script>
+
+    <div class="comment"></div>
+    <script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment', // 
+            app_id: 'RdQLv2ywe8uqpfSoY5ieIfkk-gzGzoHsz', 
+            app_key: 'gNovkG2NHNvu5do7ft3DJOhC', 
+            placeholder: '添加评论' 
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+</div>
+        <footer class="footer">
+	 ©2019 mitheme &nbsp;&nbsp;&nbsp;主题技术交流群:812282219
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e1ca2b4819eb8e6e077f2e6e8fdd2838";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+            
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+        </script>
+    
+
+    
+
+</body>
+</html>

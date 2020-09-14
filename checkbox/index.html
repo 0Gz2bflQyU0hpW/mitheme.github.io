@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+
+    
+
+    
+
+    <title>复选框制作教程 | MItheme</title>
+    <meta name="author" content="mitheme">
+    <meta name="version" content="1.0.0">
+    <meta name="keywords" content>
+    <meta name="description" content="复选框制作教程miui11稳定版已经发布咯～大家有木有体验到细腻入微的动画效果呢？～同时，checkbox也增加了一个小动画哟。为了兼容旧版本主题样式，可以通过图片和颜色值两种方式更改，来控制关闭或开启以及过渡动画效果。一、修改素材素材名称：btn_checkbox_off_disabled_light.png 页面复选框 未选 禁用btn_checkbox_off_normal_light.png 页面复选框 未选 常态btn_checkbox_on_disabled_l...">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    
+    <link rel="alternate" href="/atom.xml" title="MItheme" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <main class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">MItheme</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/guide/">
+                <span class="nav-text">入门</span>
+            </a>
+        
+            <a class="nav-item" href="/maml/">
+                <span class="nav-text">语法</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/tutorials">
+                <span class="nav-text">实例</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frame">
+                <span class="nav-text">界面</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/notice">
+                <span class="nav-text">公告</span>
+            </a>
+        
+            <a class="nav-item" href="/shenhe">
+                <span class="nav-text">审核</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <!-- <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value=""></form> -->
+        <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/local_search.js"></script>
+<script type="text/javascript">      
+	var search_path = "search.xml";
+	if (search_path.length == 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+
+
+
+
+
+<style type="text/css">
+/**
+  *放置input的div盒子
+  *1.此处应我的项目需要，加了些特别的设置，如字体、背景色等，按需添加；
+  *2.内层input不加边框，看起来效果会自然一点，所以外层div设置了边框和圆角
+*/
+.searchbox{
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 6px;
+    margin:30px;
+}
+
+
+
+/**
+  *input标签样式
+  *宽度适应外层div
+  *隐藏边框
+  *这里有个小技巧，height与line-height值相等，可保证文字垂直居中；但我发现文字比图标略偏下，进行了微调；
+*/
+.searchbox input{
+    text-indent: 30px;
+    height: 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+}
+
+/**
+  *图标样式
+  *绝对定位，自定义颜色
+*/
+.searchbox i{
+    position: absolute;
+    top: 39px;
+    left: 85px;
+    margin-left: -15%;
+    color: #B2B2B2;
+}
+</style>
+
+
+<div class="searchbox">
+    <form class="site-search-form">
+    	<input type="text" id="local-search-input" class="st-search-input" placeholder="Search">
+		<i class="icon-search-stroke"></i>
+	</form>
+</div>	
+
+<div id="local-search-result" class="local-search-result-cls"></div>
+
+
+
+
+        
+
+
+
+
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#复选框制作教程"><span class="toc-number">1.</span> <span class="toc-text">复选框制作教程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、修改素材"><span class="toc-number">1.0.1.</span> <span class="toc-text">一、修改素材</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、修改在编辑器对应的值"><span class="toc-number">1.0.2.</span> <span class="toc-text">二、修改在编辑器对应的值</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+<article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            复选框制作教程
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<a class="article-date" href="/checkbox/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-09-14T04:45:00.294Z" itemprop="datePublished">2020-09-14</time>
+</a>
+
+
+
+<i class="icon-user-stroke" style="color: #999;margin-left: 25px"></i>
+ <font color="#999">阅读量：<span id="busuanzi_value_page_pv"></span></font>
+
+
+
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/公告/">公告</a>
+</div>
+
+
+        </div>
+    </header>
+    
+
+    
+
+
+
+
+    <section class="article-body markdown-body">
+        
+        <br>
+<a id="more"></a>
+
+<h2 id="复选框制作教程"><a href="#复选框制作教程" class="headerlink" title="复选框制作教程"></a>复选框制作教程</h2><p>miui11稳定版已经发布咯～大家有木有体验到细腻入微的动画效果呢？～</p>
+<p>同时，checkbox也增加了一个小动画哟。</p>
+<p>为了兼容旧版本主题样式，可以通过图片和颜色值两种方式更改，来控制关闭或开启以及过渡动画效果。</p>
+<br>
+
+<h4 id="一、修改素材"><a href="#一、修改素材" class="headerlink" title="一、修改素材"></a>一、修改素材</h4><p>素材名称：<br>btn_checkbox_off_disabled_light.png 页面复选框 未选 禁用<br>btn_checkbox_off_normal_light.png 页面复选框 未选 常态<br>btn_checkbox_on_disabled_light.png页面复选框 已选 禁用<br>btn_checkbox_on_normal_light.png 页面复选框 已选 常态<br>btn_checkbox_off_to_on_light.png 页面复选框页面复选框按钮（透明图片，暂停动画使用）<br>btn_checkbox_on_to_off_ligh.png 页面复选框按钮（透明图片，暂停动画使用） </p>
+<br>
+
+<p><img src="https://gitee.com/mitheme/image/raw/master/checkbox/bool.png?ynotemdtimestamp=1572348164626" alt="image"></p>
+<br>
+
+<p><img src="https://gitee.com/mitheme/image/raw/master/checkbox/Bool.png?ynotemdtimestamp=1572348164626" alt="image"></p>
+<p>Ps：1.有素材资源时优先使用素材，2.如果更改图片样式时，则需要将布尔值改为false</p>
+<br>
+
+<h4 id="二、修改在编辑器对应的值"><a href="#二、修改在编辑器对应的值" class="headerlink" title="二、修改在编辑器对应的值"></a>二、修改在编辑器对应的值</h4><p><img src="https://gitee.com/mitheme/image/raw/master/checkbox/1.jpg?ynotemdtimestamp=1572348164626" alt="image"></p>
+<br>
+
+<p><img src="https://gitee.com/mitheme/image/raw/master/checkbox/2.jpg?ynotemdtimestamp=1572348164626" alt="image"></p>
+<br>
+
+<p>ps：主题包很多模块都有复选框，大家修改时需要将各模块（联系人、短信和设置）等资源全部修改包括布尔值。</p>
+<br>
+
+<p><strong>总结一下，期末要考！！</strong></p>
+<p><br>如果大家非常喜欢现在的动画效果，且主题设计本身没有强烈的重新设计checkbox的需求，只要修改颜色值即可（<strong>参考二</strong>）；如果大家喜欢旧版样式，即：无动画效果，就修改图片及布尔值（<strong>参考一</strong>）。</p>
+
+        
+    </section>
+</article>
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+
+
+
+    <!--Leancloud 操作库:-->
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <!--Valine 的核心代码库:-->
+    <script src="//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script>
+
+    <div class="comment"></div>
+    <script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment', // 
+            app_id: 'RdQLv2ywe8uqpfSoY5ieIfkk-gzGzoHsz', 
+            app_key: 'gNovkG2NHNvu5do7ft3DJOhC', 
+            placeholder: '添加评论' 
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+</div>
+        <footer class="footer">
+	 ©2019 mitheme &nbsp;&nbsp;&nbsp;主题技术交流群:812282219
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e1ca2b4819eb8e6e077f2e6e8fdd2838";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+            
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+        </script>
+    
+
+    
+
+</body>
+</html>

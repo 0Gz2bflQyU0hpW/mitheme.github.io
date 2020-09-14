@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+
+    
+
+    
+
+    <title>审核相关 | MItheme</title>
+    <meta name="author" content="mitheme">
+    <meta name="version" content="1.0.0">
+    <meta name="keywords" content>
+    <meta name="description" content="主题上传审核规范设计师朋友们好：近期，我们梳理了设计师的上传审核规范，还请设计师朋友们按以下规范要求上传：上传主题前建议您使用真机进行自测，发现问题请及时修复，上传时请上传主题素材内容的的版权证明，上传完成进入审核流程，若在审核阶段您有什么问题（如：长时间未出图、长时间未审核等等）请发送邮件至mi-theme@xiaomi.com一、版权证明（1）上传入口：https://zhuti.designer.xiaomi.com登录设计师站，上传主题包完毕，完善资料时在底部版权证明入口处进...">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    
+    <link rel="alternate" href="/atom.xml" title="MItheme" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <main class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">MItheme</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/guide/">
+                <span class="nav-text">入门</span>
+            </a>
+        
+            <a class="nav-item" href="/maml/">
+                <span class="nav-text">语法</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/tutorials">
+                <span class="nav-text">实例</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frame">
+                <span class="nav-text">界面</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/notice">
+                <span class="nav-text">公告</span>
+            </a>
+        
+            <a class="nav-item active" href="/shenhe">
+                <span class="nav-text">审核</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <!-- <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value=""></form> -->
+        <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/local_search.js"></script>
+<script type="text/javascript">      
+	var search_path = "search.xml";
+	if (search_path.length == 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+
+
+
+
+
+<style type="text/css">
+/**
+  *放置input的div盒子
+  *1.此处应我的项目需要，加了些特别的设置，如字体、背景色等，按需添加；
+  *2.内层input不加边框，看起来效果会自然一点，所以外层div设置了边框和圆角
+*/
+.searchbox{
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 6px;
+    margin:30px;
+}
+
+
+
+/**
+  *input标签样式
+  *宽度适应外层div
+  *隐藏边框
+  *这里有个小技巧，height与line-height值相等，可保证文字垂直居中；但我发现文字比图标略偏下，进行了微调；
+*/
+.searchbox input{
+    text-indent: 30px;
+    height: 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+}
+
+/**
+  *图标样式
+  *绝对定位，自定义颜色
+*/
+.searchbox i{
+    position: absolute;
+    top: 39px;
+    left: 85px;
+    margin-left: -15%;
+    color: #B2B2B2;
+}
+</style>
+
+
+<div class="searchbox">
+    <form class="site-search-form">
+    	<input type="text" id="local-search-input" class="st-search-input" placeholder="Search">
+		<i class="icon-search-stroke"></i>
+	</form>
+</div>	
+
+<div id="local-search-result" class="local-search-result-cls"></div>
+
+
+
+
+        
+
+
+
+
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#主题上传审核规范"><span class="toc-number">1.</span> <span class="toc-text">主题上传审核规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#息屏上传审核规范"><span class="toc-number">2.</span> <span class="toc-text">息屏上传审核规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#主题标签规范"><span class="toc-number">3.</span> <span class="toc-text">主题标签规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#复用元素规范"><span class="toc-number">4.</span> <span class="toc-text">复用元素规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#视觉审核规范"><span class="toc-number">5.</span> <span class="toc-text">视觉审核规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#主题适配标准"><span class="toc-number">6.</span> <span class="toc-text">主题适配标准</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#判定高级抄袭"><span class="toc-number">7.</span> <span class="toc-text">判定高级抄袭</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#邮件申请格式"><span class="toc-number">8.</span> <span class="toc-text">邮件申请格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设计师处罚标准"><span class="toc-number">9.</span> <span class="toc-text">设计师处罚标准</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+<article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            审核相关
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<a class="article-date" href="/shenhe/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-09-14T04:45:00.319Z" itemprop="datePublished">2020-09-14</time>
+</a>
+
+
+
+<i class="icon-user-stroke" style="color: #999;margin-left: 25px"></i>
+ <font color="#999">阅读量：<span id="busuanzi_value_page_pv"></span></font>
+
+
+
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/公告/">公告</a>
+</div>
+
+
+        </div>
+    </header>
+    
+
+    
+
+
+
+
+    <section class="article-body markdown-body">
+        
+        <br>
+<a id="more"></a>
+
+<h1 id="主题上传审核规范"><a href="#主题上传审核规范" class="headerlink" title="主题上传审核规范"></a>主题上传审核规范</h1><p>设计师朋友们好：<br>近期，我们梳理了设计师的上传审核规范，还请设计师朋友们按以下规范要求上传：<br>上传主题前建议您使用真机进行自测，发现问题请及时修复，上传时请上传主题素材内容的的版权证明，上传完成进入审核流程，若在审核阶段<br>您有什么问题（如：长时间未出图、长时间未审核等等）请发送邮件至<a href="mailto:mi-theme@xiaomi.com" target="_blank" rel="noopener">mi-theme@xiaomi.com</a><br>一、版权证明<br>（1）上传入口：<a href="https://zhuti.designer.xiaomi.com" target="_blank" rel="noopener">https://zhuti.designer.xiaomi.com</a><br>登录设计师站，上传主题包完毕，完善资料时在底部版权证明入口处进行上传，如下图：<br>（2）上传说明：<br>1.拥有该素材形象的版权证明，请将相关文件打包成zip格式进行上传<br>2.该素材形象为自己设计，请将原创源文件证明打包成zip格式进行上传<br>3.免费公开授权的素材库获得的素材，将相关说明、图片来源、网站链接、是否商用协议等以文档形式打包成zip格式进行上传<br>二、素材内容<br>1.禁止上传非原创、官方、抄袭、侵权等素材<br>2.禁止上传未授权的动漫、卡通、游戏、影视、明星、表情包等素材<br>3.禁止上传带球队logo、车标、商标等素材<br>4.禁止上传iOS、仿iOS（样式、图标、界面）、其它平台系统图标、壁纸、界面（仿图标、壁纸、界面等）<br>5.禁止上传涉黄、涉暴、涉政等敏感素材内容<br>6.禁止上传尺度较大、暴露等素材内容<br>三、主题基本信息<br>1.版权文件：所有上传主题均需上传版权证明（原创源文件、版权证明、相关授权证明、素材来源、是否商用）<br>2.主题名称：<br>（1）填写的名称信息需和主题包内描述文件一致，不允许使用“我的主题”作为主题名称<br>（2）不允许包含OS、功能、促销、广告等语句（如：动态锁屏、XXX图标版、3D特效、V10/V11版）<br>（3）不允许包含小米相关产品名（如：小米、MIUI、XIAOMI等）<br>（4）不允许包含低俗、谩骂、涉黄、涉政、暴力等敏感词<br>3.设计师名称：<br>（1）不允许使用“默认”名称<br>（2）不允许包含不和谐元素（如反社会、色情等）<br>（3）不允许包含小米相关产品名（如：小米、MIUI、XIAOMI等）<br>（4）不允许包含低俗、谩骂、涉黄、涉政、暴力等敏感词<br>4.主题包大小：不允许超过80M<br>5.关键词：正确填写符合主题风格的关键词<br>6.主题介绍：介绍符合主题相关的内容、不允许包含小米相关产品名（如：小米、MIUI、XIAOMI等）、不能包含好评返现、促销等语句（如好评返现、前多少名好评免单、好评送壁纸等），可填写个人QQ，填写更新日志时需明确更新内容。<br>7.备注：有截图需求或相关问题请备注说明<br>四、锁屏<br>1.锁屏通知文字可见、宽度适宜、且点击可正常调起相应应用<br>2.锁屏壁纸显示正常，适配最高分辨率机型，素材无拉伸、压缩、裁剪等问题<br>3.更新时锁屏壁纸与线上壁纸差异不宜过大<br>4.锁屏动效流畅，不卡顿，页面切换时无明显延迟，多功能锁屏需保证功能流畅可用<br>5.锁屏解锁流畅，无不易解锁等情况<br>6.锁屏时钟（默认情况下必须能跟随系统时钟里面设置的小时制变化，支持12小时制和24小时制）、日期、星期等信息显示正确<br>7.禁止锁屏功能内添加跳转外链<br>8.保证锁屏整体风格一致<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/099804446306f49d808bcf8ed00c8a93e3335876d/file.png" alt="image"><br>9.禁止上传锁屏自带密码的主题，详情请查看：<a href="http://www.zhutidasai.com/?p=3618" target="_blank" rel="noopener">http://www.zhutidasai.com/?p=3618</a><br>   <img src="https://ts.market.mi-img.com/download/ThemeMarket/0cf745df4ce42e07ddb6b0a5431059a8b2443fb38/file.png" alt="image">   <img src="https://ts.market.mi-img.com/download/ThemeMarket/0be1b496f45981e7f9245a335e5a96b6f644279a1/file.png" alt="image"><br>10.指纹解锁区域禁止制作时钟、功能按钮、快捷键、添加文字信息等；禁止隐藏指纹图标<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/03c875b84387b5e9f08d754644ade25b7a8428c70/file.png" alt="image">  <img src="https://ts.market.mi-img.com/download/ThemeMarket/0fdc7852d98894f2f22b76dc3a9a92562262b9fa6/file.png" alt="image"><br>11.（1）若相机小图标在右下角（与系统默认效果相似），则进入相机方式需与系统保持一致。<br>   （2）若相机小图标在其他位置（非屏幕右下角），请设计师自行判断进入相机的方式是否存在学习难度，若进入方式合理且不会造成使用者的困扰，可在上传审核时备注，由官方审核人员判断是否予以上线。<br>   【详情请查看：<a href="https://mitheme.github.io/openCamera" target="_blank" rel="noopener">https://mitheme.github.io/openCamera</a> 】<br>12.锁屏音乐制作规范，详情请参考：<a href="https://mitheme.github.io/music" target="_blank" rel="noopener">https://mitheme.github.io/music</a><br>五、桌面<br>1.桌面壁纸显示正常，适配最高分辨率机型，素材无拉伸、压缩、裁剪等问题<br>2.更新时桌面壁纸与线上壁纸差异不宜过大<br>3.桌面图标清晰易识别且符合《主题适配标准》中需适配的图标数量要求<br>4.桌面时钟（默认情况下必须能跟随系统时钟里面设置的小时制变化，支持12小时制和24小时制）、日期、星期等信息显示正确<br>5.桌面快捷方式图标清晰、文字无错位等，如设计需和普通图标风格一致<br>6.三指下滑编辑截图界面底部按钮清晰可见<br>7.音量调节界面字体、按钮、进度条等清晰可见<br>8.白色线性图标负一屏、应用权限管理、双开应用等界面图标需易识别<br>9.第三方滤镜、遮罩等导致第三方图标无法识别，不予上架<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0284241e36219cbf516ce315c243fbcb6444259f8/file.png" alt="image"><br>10.桌面时钟生效区域不可过大，以免误触<br>【注：时间显示区域需支持点击进入时钟app，天气相关展示支持跳转天气app，日历相关展示支持跳转日历APP，并需合理控制可点区域范围。（范围过大/过小有被驳回风险哟）】<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/073f34420446bdffc3c91028dc56db579b641f86f/file.png" alt="image"></p>
+<p>六、全局模块（下拉通知栏、多任务管理器、拨号、短息、设置等界面）<br>需保证图标、文字清晰易识别；功能正常使用；设计风格一致；素材无拉伸变形等；禁止适配QQ、微信、相册模块。<br>1.设计风格不一致图例：<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0d9804346203fe9d308bc48edb8c8597eb34060a4/file.png" alt="image"> <img src="https://ts.market.mi-img.com/download/ThemeMarket/0d9804346303fc9d348bc18ed38c8597e934060a4/file.png" alt="image"><br>2.通知栏顶部间距不允许修改，需和默认通知栏间距保持一致，否则设置搜索图标会在Redmi K30机型上被遮挡<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/005a1531790c80bb2386fdae9730eefa3be41cd60/file.png" alt="image">  <img src="https://ts.market.mi-img.com/download/ThemeMarket/0cd7f643c249f430f3a1c698df53cf97b3e2fcc42/file.png" alt="image"><br>七、字符串修改<br>需遵循规范，以避免错误传达导致用户误解。如不符合规范要求，主题会被驳回。<br> 1、语义传达与原文案一致。<br>示例：<br>正确-通过：原文案：“好的”；主题修改为：“明白了”<br>错误-驳回：原文案：“稳定版”；主题修改为：“开发版”or“米兜定制 稳定版”<br>2、禁止修改三方app内文案<br>示例：<br>错误-驳回：阴阳师app的名称为“阴阳师” ；主题修改为：“来打游戏呀”</p>
+<h1 id="息屏上传审核规范"><a href="#息屏上传审核规范" class="headerlink" title="息屏上传审核规范"></a>息屏上传审核规范</h1><p>一、息屏上传教程<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/08d794ae6d9a28bf115eaef232dc3bf8e4440370a/file.png" width="800" align="center"><br>二、息屏上传审核规范<br>1.上传规范：<br>（1）版权文件：请上传相关素材的版权文件<br>a.拥有该素材形象的版权证明，请上传相关证明文件（如涉及人物肖像权，请上传本人手持身份证正面照及肖像授权证明扫描件）<br>b.该素材形象为自己设计，请上传原创源文件<br>c.免费公开授权的素材库获得的素材，将相关说明、素材来源、网站链接、是否商用等以文档形式上传<br>d.若使用相关字体，请说明使用的字体名称、是否商用等以文档形式进行上传<br>【注：以上文件均以zip格式上传】<br>（2）AOD名称：与主题名称规范一致<br>a.填写的名称信息需和投稿时名称、包内描述文件一致<br>b.不允许包含OS、功能等语句（如：动态、3D特效等）<br>c.不允许包含小米相关产品名（如：小米、MIUI、XIAOMI等）<br>（3）设计师名称：需和投稿时设计师名称保持一致<br>（4）AOD大小：不允许超过10M<br>（5）资源介绍：<br>介绍符合息屏的内容，如息屏是随时间变化，需说明不同条件的对应效果。不允许包含低俗、谩骂、涉黄、涉政、涉暴等敏感词；不允许包含小米相关产品名（如：小米、MIUI、XIAOMI等）；不允许包含好评返现、促销等语句（如好评返现、前多少名好评免单、好评送壁纸等）。<br>（6）关键词：<br>按照息屏的客观属性填入标签，类别、功能的标签用词请与下方参考标签保持一致，标签总数不少于3个<br>参考标签如下<br>类别（至少写1个）：<br>数字时钟（视觉以数字为主的时钟）<br>表盘时钟（视觉以表盘为主的时钟）<br>文字（视觉以文字为主）<br>插画（视觉以图画为主）</p>
+<p>功能（至少写1个）：<br>静态息屏（静态图片息屏）<br>动态息屏（有动画效果的息屏）<br>时间息屏（随时间变化的息屏）<br>天气息屏（随天气变化的息屏）<br>盲盒息屏（随机变化的息屏）</p>
+<p>风格（自选）：炫酷、商务、质感、极简、文艺、可爱、搞怪等等<br>内容（自选）：风景、宠物、节日等等<br>2.审核规范：<br>（1）需确保AOD支持电量、通知这两个开关配置项（样式可自行设计，也可用官方默认样式）<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0fd79a5e649824bf005eaaf2376c30f8eaa16d838" width="300" align="center"><br>（2）息屏动态效果保持流畅、无明显卡顿，最高帧率建议使用30或60<br>（3）禁止传感器/Button跳转等交互功<br>（4）息屏首次展示时，可播放动画，动画总时长不可超过4000ms<br>（5）含动画的效果，在初始化和动画结束，需规范代码书写方式，供系统获取动画状态<br>（6）大小需保证10M之内<br>（7）时间（12小时制、24小时制）、日期显示正确<br>（8）AOD 样式的非纯黑像素占屏幕总像素的比例不超过15%<br>    以常见支持AOD的屏幕为例，15%像素区域的方形大约为600 * 600px；<br>    主题设计内容如果非纯黑像素较少，则不应超过这个区域，非纯黑像素较多，则可适当超过这个区域<br>    <img src="https://ts.market.mi-img.com/download/ThemeMarket/0f91d5e92437c859cf90ad71e53e99ec11f40a5b0" width="300" align="center"><br>（9）通知图标请使用默认图标效果<br>    <img src="https://ts.market.mi-img.com/download/ThemeMarket/000d25f61e390ebfee151a8cf35c3b5ef7140ab8f" width="300" align="center"><br>（10）当无法获取到数据时，需注意展示方式。【如：未获取到天气数据时，无需展示天气数据】<br>    <img src="https://ts.market.mi-img.com/download/ThemeMarket/0298794ddc9e44ece1184bf35cb2337e1bec6b583" width="300" align="center">  <img src="https://ts.market.mi-img.com/download/ThemeMarket/033604bcf65f01860d9edc05aeefddaedc24166e6" width="300" align="center"></p>
+<p>（11）息屏电量，需制作充电状态<br>    <img src="https://ts.market.mi-img.com/download/ThemeMarket/0a8c0a448a988498b329a1233fc41d0c29c591ddc" width="300" align="center">  <img src="https://ts.market.mi-img.com/download/ThemeMarket/068c0a448a988498c329ae233f541d0729c571ddc" width="300" align="center"></p>
+<h1 id="主题标签规范"><a href="#主题标签规范" class="headerlink" title="主题标签规范"></a>主题标签规范</h1><p>设计师朋友们好：<br>主题标签与流量分成收入息息相关，近期我们实行了主题标签规范，针对主题标签出现的问题，梳理更新了以下要求：</p>
+<p>1.不允许填写与作品不相关的标签；<br>2.不允许重复，标签之间需要有区分度；<br>3.主题标签可从视觉风格、主题涉及的内容以及主题具备的功能三方面来填写；<br>4.建议标签数量及禁止打的标签如下图所示，建议风格类标签1-2个，内容类标签3-6个，功能类标签根据主题的实际功能填写（个数不限），以风格结合内容的形式展示您作品的特点。</p>
+<img src="https://ts.market.mi-img.com/download/ThemeMarket/0d8fe46a706a2066126156644fdb4acacb841dc86/file.png" width="1000" align="center">
+<br>
+
+<p><a href="https://ts.market.mi-img.com/download/ThemeMarket/00a424ff38532ff0e543e1a70d86fa7f84242ea92/file.xlsx" target="_blank" rel="noopener">查看更多内容标签，点击下载</a></p>
+<p>不符合上述标签规范的作品将会被限流或者退回，如多次不符合规范将会走审核冷却机制；</p>
+<p>Q&amp;A：</p>
+<p>Q：为什么要注意打准标签，对于设计师来说有哪些好处？<br>A：如下图所示：标签在个性化推荐的应用上十分关键，打准标签才能获得精准的流量和点击，获得好的用户反馈，从而提升设计师的分成收入。<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0002d42e5f0b907c5e2f3a991f5173f54714055b8/file.png" width="1200" align="center"></p>
+<p>Q：为什么标签不允许重复？<br>A：相同意义的标签填写一个就可以，填写多个反而对于算法的推荐有阻碍；无需担心搜索关键词的问题，搜索我们会用另外的关键词映射关系补充；</p>
+<p>Q：为什么标签要突出内容，涉及内容的标签数量比较高？<br>A：从标签树可以看出，目前库内的主题在视觉风格上有很多重复，因此内容是展示作品特点的关键；</p>
+<p>Q：为什么要限制标签数量？<br>A：标签数量限制是根据现有标签库总结出来的最合适的数量组合，最主要的还是标签在能展示主题特点的情况下与内容匹配并且不重复；</p>
+<p>Q：可以在标签中填上设计师名称和主题名称吗？<br>A：不需要，设计师名称和主题名称本身就在一套主题的标签当中了，不需要额外打上这类标签，会增加推荐算法识别的难度；</p>
+<p>Q：以前上传的已经在线上的主题要重新填写标签并更新吗？<br>A：需要，以前上传的主题在更新了标签之后推荐算法才能根据新的标签将您的主题推荐给目标用户；</p>
+<p>此外，我们根据目前线上主题的标签情况，补充了填写标签示例，请各位设计师认真查看：<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0e9f2d4bffb1947ea0be69b87d41846e9c40a381e/file.png" width="1200" align="center"><br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0c9504b4dbe42d8a46229749d10d6954e45424c9c/file.png" width="1200" align="center"><br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0002d42e5d0b917c512f3499175175f54d14055b8/file.png" width="1200" align="center"><br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0c9af5d9c0426d25927d98216028715d0ef422713/file.png" width="1200" align="center"><br><img src="https://ts.market.mi-img.com/download/ThemeMarket/08baf754d37194fa7000cb1b41ea51070172ddf82/file.png" width="1200" align="center"><br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0f9f2d5bffb0947e80be63b87d51846d9c40f381e/file.png" width="1000" align="center"><br><img src="https://ts.market.mi-img.com/download/ThemeMarket/04950c44d5eb248ae2229a49dc1d6954eb444044c/file.png" width="1000" align="center"></p>
+<p>注：此公告即日生效<br>1.请各位设计师朋友在上新或者更新作品时按照标签新规范上传；<br>2.如您的已上线作品存在与标签新规范不符的情况，请尽快更新！</p>
+<h1 id="复用元素规范"><a href="#复用元素规范" class="headerlink" title="复用元素规范"></a>复用元素规范</h1><p>设计师朋友们：<br>我们收到了设计师朋友关于2019.9.11发布的《系列主题上传规范》的建议，经过内部讨论，现将规范更名为《主题可复用元素规范》（以下简称“复用规范”），并作出如下调整和细化说明，请您仔细阅读。<br>重点变更内容：<br>1、原公告是9.30之前，设计师自审后主动申请下架系列主题<br>现改为：设计师自审后，已上线的违规主题可在v10版本继续维护，v11版本的主题必须符合复用规范<br>2、原公告图标不可复用<br>现改为：官方规定适配的51款图标素材不可复用（风格、滤镜可复用）<br>3、原公告的“系列主题”更名为“复用元素主题”，并细化了其判定标准，可适当复用元素，详见下文<br>一、复用元素规范<br>元素定义：将模块拆分成更小的设计单位（具体元素详见下表）<br>“复用元素”的定义：同一设计师名下的A主题与B主题在同一模块下使用任一相同元素<br>我们将主题按模块拆分为以下元素，进行对比：<br>1.锁屏<br>分为壁纸与主视觉两大元素，其中壁纸不可复用；主视觉不可完全一致<br>2.桌面<br>分为图标与壁纸两大元素，其中壁纸不可复用；官方规定适配的51款图标不可复用（风格、滤镜可复用）<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/067938576440747cc32c4f99137701bdb542c398b/file.png" alt="image"><br>二、相关图例<br>（1）锁屏<br>壁纸不一致，但主视觉一致（不符合标准1的【主视觉】元素要求）<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/07e95528d16c9aa96712e524cd0f01791e64005e0/file.png" alt="image"><br>（2）桌面<br>图标素材相同、壁纸相同（不符合标准2，粉色版、紫色版等仅修改颜色也属图标相同）<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0dc914029c6159ff2daa68001988b7b28f2439cdb/file.png" alt="image"><br>改动较大、两种不同风格（线性、面性设计）的图标（符合标准2，此类情况不算做复用）<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0dc914029c6159ff2caa66001688b1b28d2439cdb/file.png" alt="image"><br>三、违规处罚办法<br>对于新主题，《复用规范》即日起生效。<br>对于线上已有的主题，设计师自审后，未符合《复用规范》的主题可在V10版本持续更新维护，V11主题需符合复用规范。<br>我们会定期抽查，也欢迎设计师朋友们互相监督，举报不符合《复用规范》的v11主题。<br>若您的主题被抽查发现，或被其他设计师举报并核实，我们将对您进行如下处罚：<br>第一次：封停设计师账号上传权限一个月，以示警告<br>第二次：永久封停设计师账号上传权限。<br>四、情侣主题报备方法<br>情侣主题需要先邮件报备，通过后即可上传<br>情侣主题的定义：以情侣为主要内容，设计、制作、风格相同或相似的2套主题<br>1.报备<br>使用注册设计师账号的邮箱发送报备邮件至 <a href="mailto:mi-theme@xiaomi.com" target="_blank" rel="noopener">mi-theme@xiaomi.com</a><br>邮件标题：晚风情侣主题报备<br>正文：设计师小米ID、设计师名称、主题名称、情侣主题设计稿示意图<br>附件：原创源文件<br>格式请参考下图：<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/00c825594ba1b4bd73bd5f2f63718ae34513a41fb/file.png" alt="image"><br>2.审核<br>审核时间为1-3个工作日，请您注意查收邮件<br>3.上传<br>设计师收到审核通过的邮件后，使用报备的主题名称上传，并备注“情侣主题”已通过邮件报备，若上传的主题名称与报备的主题名称不一致，将不被通过审核上线。<br>六、Q&amp;A<br>Q：我的图标是买的，以后该怎么办？<br>A：根据“复用规范”，同一套图标只可在1套主题或1对情侣主题中使用，否则视作违规；若您是图标购买方，建议您与图标售卖方达成协议，以保障自己的利益</p>
+<p>Q：我可以复用自己的主题元素吗？<br>A：除通过报备的情侣主题可以复用，其他主题必须符合“复用规范”</p>
+<p>Q：图标只更换背板可以上传吗？<br>A：不可以，根据复用规范，图标素材必须不同。</p>
+<p>Q：使用官方插件算系列主题吗？<br>A：不算，但建议设计师使用插件的同时自行创新</p>
+<p>Q：若A和B为一对情侣主题，B和C为一对情侣主题，AB和BC可以共用一套图标吗？<br>A：官方规定适配的51款图标不可以</p>
+<p>Q：官方自动升级的V11主题不符合复用规范怎么处理？<br>A：设计师自查/其他设计师举报此类主题，我们将在核实后进行下架处理（参与内测的补贴结束后下架），为保障设计师利益，您可进行如下操作：<br>1）修改为合规主题后，作为新主题，上传v11版本<br>2）不做任何修改，作为新主题，上传v10版本</p>
+<h1 id="视觉审核规范"><a href="#视觉审核规范" class="headerlink" title="视觉审核规范"></a>视觉审核规范</h1><p>设计师朋友们好:<br>近期，我们实行了主题视觉审核，针对出现的问题，制定了视觉审核的评判标准：<br>采用评分制度，总分110分，其中带”*“为必审核项（100分），不带”*“为额外加分项（10分），根据模块拆分进行评分，若您的主题总评分低于60分，主题将不被通过审核。<br>其中，壁纸一图流为扣分项；锁屏音乐、锁屏充电、锁屏负一屏、桌面负一屏、自由桌面为加分项，若您的主题适配了此模块且风格统一，将获得相应加分。详情如下：<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0cd6de4f1e41547f4090e3408fd1bb44305864c11/file.png" alt="image"><br>此外，我们针对设计师出现的问题，总结了设计师引导规范，供设计师制作主题时参考，详情请点击下图下载查看：<br><a href="https://ts.market.mi-img.com/download/ThemeMarket/09b0a583abd82372b2d6e8d03786946330a42363c/设计师引导规范.pdf" target="_blank" rel="noopener"><img border="0" src="https://ts.market.mi-img.com/download/ThemeMarket/04dcb4550aa164c4621978e5a7cc96b793ea5c108/file.png"></a></p>
+<h1 id="主题适配标准"><a href="#主题适配标准" class="headerlink" title="主题适配标准"></a>主题适配标准</h1><p>因主题业务模式变更，除部分版权主题外，其它主题均不再支持收费，对《主题适配标准》做了如下调整：<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0b11735a69f5d43640dc39fba0a57bd2bb958ac96/file.png" width="800" align="center"><br>桌面底部搜索框设计教程：<a href="https://mitheme.github.io/seachbar" target="_blank" rel="noopener">https://mitheme.github.io/seachbar</a><br>桌面快捷开关在 icons 图标目录，可在这里下载：<a href="https://mitheme.github.io/homeIcon" target="_blank" rel="noopener">https://mitheme.github.io/homeIcon</a><br>桌面一键清理与强力清理在桌面模块（手机查看添加方法：安全中心-设置-添加桌面快捷方式：一键清理/强力清理）。</p>
+<h1 id="判定高级抄袭"><a href="#判定高级抄袭" class="headerlink" title="判定高级抄袭"></a>判定高级抄袭</h1><p>尊敬的设计师朋友们：<br>对于一些较难判定的原创类锁屏抄袭，我们为此制定了评判方法如下：<br>首先，对比锁屏代码是否相似，如果相似，则判定主题涉嫌抄袭。<br>其次，若代码不相似。则对锁屏的设计进行比较，主要从三个维度：内容元素、风格、布局。<br>内容元素，是指锁屏的各类素材、元素，对比它们是否相似。该维度占比最重；<br>风格，是指画风、艺术手法等，对比它们是否相同。该维度占比较轻；<br>布局，是指各模块的位置，对比它们的位置是否相近。该维度占比与“风格”相同；<br>如果三个维度中，“内容元素”抄袭，则其它两个维度满足任意一个，就会判定主题涉嫌抄袭；<br>如果三个维度中，任意两个维度未被判定为抄袭，则锁屏设计未构成抄袭。<br>最后，在确定主题涉嫌抄袭后，需要核实双方在全平台上线时间的早晚，以判定是否构成抄袭。<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0dd3b4c2f6af79aa384af87ef76768e64784025b9/file.png" alt="image"><br>案例：<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/0579f54ac72a34d3c3532a8cd598e81f5ee5d815b/file.png" alt="image">      <img src="https://ts.market.mi-img.com/download/ThemeMarket/07d3b942f8a074aaf04afa7ef5076bea4cf3c662d/file.png" alt="image"><br>分析：<br>首先，我们已经对比了代码，并不相似。<br>其次，原创和被举报主题的内容元素非常相似，而且风格相同。所以我们判定为涉嫌抄袭。<br>最后，我们对比了双方提供的全平台最早上线时间，原创主题最早在 2014 年就上线，而被举报主题最早是在2016 年上线。<br>最终我们判定被举报主题的锁屏抄袭成立！<br>请大家在进行投诉时提供相应的证据，以便我们尽快判定，以维护您的权益。</p>
+<h1 id="邮件申请格式"><a href="#邮件申请格式" class="headerlink" title="邮件申请格式"></a>邮件申请格式</h1><p>各位亲爱的设计师大家好：<br>    为了规范大家的邮件申请格式，同事为了更好的服务设计师，提高使用体验，现整理出如下规范，望周知。<br>邮件申请须知：<br>统一接受邮件邮箱：<a href="mailto:mi-theme@xiaomi.com" target="_blank" rel="noopener">mi-theme@xiaomi.com</a>；所有发件人的邮箱必须以注册时填写的邮箱为准。<br>一.【主题下架邮件申请格式】<br>标题：下架申请—《xxxx》申请下架主题<br>正文：<br>您好：<br>我是主题设计师xxxx，小米ID是xxxx。<br>下架理由：xxxxxx<br>主题链接：xxxx<br>二.【侵权/抄袭主题下架邮件申请格式】<br>标题：侵权/抄袭举报—《XXXX》侵权/抄袭<br>正文：<br>您好：<br>我是主题设计师xxxx，小米ID是xxxx，现在举报主题《xxxx》抄袭我的主题《xxxx》，烦请审核组同学下架该主题。<br>本人设计图：<br>本人主题链接：xxxx<br>本人作品链接证明：xxxxxxxxxxxx<br>申请下架理由：抄袭本人设计主题的锁屏模块以及拨号界面。<br>侵权人主题图：<br>侵权主题名字：《xxxx》<br>侵权主题链接：xxxxxxxx<br>（备注：请提供抄袭证据，如：原创源文件证明，素材、代码对比截图）<br>三.【个人设计师转企业设计师流程以及邮件申请格式】<br>个人申请企业设计师流程：<br>可以新开一个小米帐号或申请此小米帐号转成企业帐号。<br>1.新开企业设计师号可按照申请设计师标准流程来进行。<br>2.个人设计师转企业设计师流程：<br>第1步：申请个人设计师帐号主题转移<br>格式如下：<br>标题：转移主题申请—转出名下主题<br>正文：<br>您好：<br>我是主题设计师xxxx，小米ID是xxxx，因注册成企业设计师缘故，现在申请名下主题转移到小米IDxxxx名下，烦请帮忙处理。<br>主题链接：xxxxxxxx<br>主题链接：xxxxxxxx<br>第2步：申请注销个人设计师帐号<br>格式如下：<br>标题：注销设计师帐号—个人设计师<br>正文：<br>您好：<br>我是主题设计师xxxx，小米ID是xxxx，因注册成企业设计师缘故，现在申请注销此帐号，烦请帮忙处理。<br>备注：<br>1.注销帐号需要提供身份证号和手持身份证照片。<br>2.在主题转出期间出现主题产生的订单归主题所有人拥有（请务必慎重）<br>如果申请个人帐号转企业帐号则默认遵守此规则。<br>第3步：申请企业设计师帐号<br>正常申请企业设计师帐号即可。<br>第4步：申请企业设计师帐号主题转移<br>格式如下：<br>标题：转移主题申请—转入名下主题<br>正文：<br>您好：<br>我是主题设计师xxxx，小米ID是xxxx，因注册成企业设计师缘故，现在申请名下主题转移到小米IDxxxx名下，烦请帮忙处理。<br>主题链接：xxxxxxxx<br>主题链接：xxxxxxxx<br>注意：此转移主题发件人邮箱必须是主题拥有者的邮箱<br>第5步：完成<br>官方在完成转移操作后会邮件通知，收到该通知后登录设计师站后刷新即可。<br>注：<br>如果已经有企业设计师帐号，可直接进行第二部，把个人名下主题转移到企业帐号名下。<br>【申请主题转移】<br>申请个人设计师帐号主题转移<br>格式如下：<br>标题：转移主题申请—转出名下主题<br>正文：<br>您好：<br>我是主题设计师xxxx，小米ID是xxxx，因xxxxx缘故，现在申请名下主题转移到小米IDxxxx名下，烦请帮忙处理。<br>主题链接：xxxxxxxx<br>主题链接：xxxxxxxx<br>【帐号异常】<br>格式如下<br>标题：设计师站账号异常<br>正文：<br>您好：<br>我是主题设计师xxxx，小米ID是xxxx，我的设计师帐号显示异常，后台显示原因是xxxxxxxx，烦请帮忙处理。<br>备注：请务必在邮件正文中附上截图。<br>【提现问题】<br>格式如下<br>标题：设计师站提现问题<br>正文：<br>您好：<br>我是主题设计师xxxx，小米ID是xxxx，我的设计师帐号显示提现问题，具体原因是xxxx，烦请帮忙处理。<br>备注：请务必在邮件正文中附上截图。<br>【注销企业账号】<br>格式如下：<br>标题：注销设计师帐号—XXXX公司<br>正文：<br>您好：<br>我是企业设计师xxxx，小米ID是xxxx，因xxxxxxxx缘故，现在申请注销此帐号，烦请帮忙处理。<br>备注：注销帐号需要提供企业营业执照。</p>
+<h1 id="设计师处罚标准"><a href="#设计师处罚标准" class="headerlink" title="设计师处罚标准"></a>设计师处罚标准</h1><p>为规范主题市场内设计师相关行为，保障公平竞争原则，我们已开始实施设计师处罚标准，根据不同违规类别，给出相应处罚措施。详情如下：<br><img src="https://ts.market.mi-img.com/download/ThemeMarket/09f0e34157e0d41b4119bb2e21448eb3a7f780313/file.png" alt="image"></p>
+
+        
+    </section>
+</article>
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+
+
+
+    <!--Leancloud 操作库:-->
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <!--Valine 的核心代码库:-->
+    <script src="//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script>
+
+    <div class="comment"></div>
+    <script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment', // 
+            app_id: 'RdQLv2ywe8uqpfSoY5ieIfkk-gzGzoHsz', 
+            app_key: 'gNovkG2NHNvu5do7ft3DJOhC', 
+            placeholder: '添加评论' 
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+</div>
+        <footer class="footer">
+	 ©2019 mitheme &nbsp;&nbsp;&nbsp;主题技术交流群:812282219
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e1ca2b4819eb8e6e077f2e6e8fdd2838";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+            
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+        </script>
+    
+
+    
+
+</body>
+</html>

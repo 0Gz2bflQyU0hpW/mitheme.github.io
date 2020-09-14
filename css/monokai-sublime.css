@@ -1,0 +1,117 @@
+.highlight {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 16px;
+  background-color: #fafbfc;
+  background-size: 100% 28px;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  /*语法类型显示*/
+  /*    background-image: linear-gradient(@code-bg, @code-bg);
+    background-repeat: repeat-x;
+
+    &:before {
+        content: 'code';
+        display: block;
+        padding: 0 8px;
+        line-height: 28px;
+        color: #989898;
+        text-transform: capitalize;
+    }
+    .language-label();*/
+}
+.highlight .gutter {
+  width: 40px;
+}
+.highlight .gutter pre {
+  padding-right: 8px;
+  padding-left: 8px;
+  color: #90908a;
+  text-align: right;
+}
+.highlight,
+.highlight .tag,
+.highlight .subst {
+  color: #8e457b;
+}
+.highlight .strong,
+.highlight .emphasis {
+  color: #a8a8a2;
+}
+.highlight .bullet,
+.highlight .quote,
+.highlight .number,
+.highlight .regexp,
+.highlight .literal,
+.highlight .link {
+  color: #ae81ff;
+}
+.highlight .code,
+.highlight .title,
+.highlight .section,
+.highlight .selector-class {
+  color: #333;
+}
+.highlight .strong {
+  font-weight: bold;
+}
+.highlight .emphasis {
+  font-style: italic;
+}
+.highlight .keyword,
+.highlight .selector-tag,
+.highlight .name {
+  color: #4553a5;
+}
+.highlight .attr {
+  color: #398a6e;
+}
+.highlight .symbol,
+.highlight .attribute {
+  color: #66d9ef;
+}
+.highlight .params {
+  color: #fd9720;
+}
+.highlight .class .title,
+.highlight .function .title {
+  color: #a6e22e;
+}
+.highlight .string,
+.highlight .type,
+.highlight .built_in,
+.highlight .builtin-name,
+.highlight .selector-id,
+.highlight .selector-attr,
+.highlight .selector-pseudo,
+.highlight .addition,
+.highlight .variable,
+.highlight .template-variable {
+  color: #c55656;
+}
+.highlight .comment,
+.highlight .deletion,
+.highlight .meta {
+  color: #75715e;
+}
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+.markdown-body .highlight table {
+  margin-bottom: 0;
+}
+.markdown-body .highlight table tr {
+  background-color: transparent;
+  border-top: none;
+}
+.markdown-body .highlight table td {
+  padding: 0;
+  border: none;
+}
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  background-color: transparent;
+  border-radius: 0;
+}

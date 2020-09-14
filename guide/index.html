@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+
+    
+
+    
+
+    <title>入门教程 | MItheme</title>
+    <meta name="author" content="mitheme">
+    <meta name="version" content="1.0.0">
+    <meta name="keywords" content>
+    <meta name="description" content="编辑器安装video {object-fit:fill}       1、下载编辑器点击这里下载编辑器解压后 Windows 下执行根目录下的 MIUINewThemeEditor.exe 即可打开编辑器，mac 下执行编辑器子目录（类似 19.5.31_1559298827 的文件夹，不同版本文件夹名称不一样）MIUINewThemeEditor.jar 文件打开编辑器mac 系统需提前安装 java 环境。2、编辑器更新编辑器器有更新时，打开编辑器会...">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    
+    <link rel="alternate" href="/atom.xml" title="MItheme" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <main class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">MItheme</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item active" href="/guide/">
+                <span class="nav-text">入门</span>
+            </a>
+        
+            <a class="nav-item" href="/maml/">
+                <span class="nav-text">语法</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/tutorials">
+                <span class="nav-text">实例</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frame">
+                <span class="nav-text">界面</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/notice">
+                <span class="nav-text">公告</span>
+            </a>
+        
+            <a class="nav-item" href="/shenhe">
+                <span class="nav-text">审核</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <!-- <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value=""></form> -->
+        <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/local_search.js"></script>
+<script type="text/javascript">      
+	var search_path = "search.xml";
+	if (search_path.length == 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+
+
+
+
+
+<style type="text/css">
+/**
+  *放置input的div盒子
+  *1.此处应我的项目需要，加了些特别的设置，如字体、背景色等，按需添加；
+  *2.内层input不加边框，看起来效果会自然一点，所以外层div设置了边框和圆角
+*/
+.searchbox{
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 6px;
+    margin:30px;
+}
+
+
+
+/**
+  *input标签样式
+  *宽度适应外层div
+  *隐藏边框
+  *这里有个小技巧，height与line-height值相等，可保证文字垂直居中；但我发现文字比图标略偏下，进行了微调；
+*/
+.searchbox input{
+    text-indent: 30px;
+    height: 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+}
+
+/**
+  *图标样式
+  *绝对定位，自定义颜色
+*/
+.searchbox i{
+    position: absolute;
+    top: 39px;
+    left: 85px;
+    margin-left: -15%;
+    color: #B2B2B2;
+}
+</style>
+
+
+<div class="searchbox">
+    <form class="site-search-form">
+    	<input type="text" id="local-search-input" class="st-search-input" placeholder="Search">
+		<i class="icon-search-stroke"></i>
+	</form>
+</div>	
+
+<div id="local-search-result" class="local-search-result-cls"></div>
+
+
+
+
+        
+
+
+
+
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑器安装"><span class="toc-number">1.</span> <span class="toc-text">编辑器安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建主题包"><span class="toc-number">2.</span> <span class="toc-text">创建主题包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑器使用"><span class="toc-number">3.</span> <span class="toc-text">编辑器使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主题包结构"><span class="toc-number">4.</span> <span class="toc-text">主题包结构</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+<article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            入门教程
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<a class="article-date" href="/guide/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-09-14T04:45:00.295Z" itemprop="datePublished">2020-09-14</time>
+</a>
+
+
+
+<i class="icon-user-stroke" style="color: #999;margin-left: 25px"></i>
+ <font color="#999">阅读量：<span id="busuanzi_value_page_pv"></span></font>
+
+
+
+
+            
+
+        </div>
+    </header>
+    
+
+    
+
+
+
+
+    <section class="article-body markdown-body">
+        
+        <h2 id="编辑器安装"><a href="#编辑器安装" class="headerlink" title="编辑器安装"></a>编辑器安装</h2><link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+<script src="http://vjs.zencdn.net/4.12/video.js"></script>
+<style>video {object-fit:fill}</style>
+<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" style="width:100%; position:relative;" poster="https://gitee.com/mitheme/image/raw/master/video/视频封面.png">
+       <source src="https://cdn.cnbj1.fds.api.mi-img.com/mitheme-blog/vedio/MIUI%E4%B8%BB%E9%A2%98%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B-%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85.mp4" type="video/mp4">
+</video>
+
+<br>
+<br>
+
+<p>1、下载编辑器</p>
+<ul>
+<li><a href="https://pan.mioffice.cn/#/link/84F330FCBBCE180A7EBFA6B4EEA68FFC?path=" target="_blank" rel="noopener">点击这里</a>下载编辑器</li>
+<li>解压后 Windows 下执行根目录下的 MIUINewThemeEditor.exe 即可打开编辑器，mac 下执行编辑器子目录（类似 19.5.31_1559298827 的文件夹，不同版本文件夹名称不一样）MIUINewThemeEditor.jar 文件打开编辑器</li>
+<li>mac 系统需提前安装 java 环境。</li>
+</ul>
+<p>2、编辑器更新</p>
+<ul>
+<li>编辑器器有更新时，打开编辑器会自动收到更新</li>
+<li>如果更新过程中提示解压失败，请进入编辑器二级目录（类似 19.5.31_1559298827 的文件夹，不同版本文件夹名称不一样）下找到一个 zip 包，把这个 zip 包拷贝出来手动解压一次即可</li>
+</ul>
+<p>3、注意事项：</p>
+<ul>
+<li>编辑器在连接手机时需要开启 USB 调试，开启 USB 调试方法：<ul>
+<li>开启 USB 调试需要先开启开发者选项，开启开发者选项方法：设置-我的设备-全部参数，连续点击 MIUI 版本（至少 7 次，直到提示：您已处于开发者模式，无需进行此操作）</li>
+<li>开启手机 USB 调试方法：设置-更多设置-开发者选项，开启 USB 调试，第一次连接到电脑时，手机会弹出允许 USB 调试的弹窗，选择允许后电脑与手机的 usb 调试就建立好了，后续无需再次开启（注意，再手机的安全中心进行手机优化后，系统可能会把 USB 调试模式关闭，如果关闭了，请按照上面的步骤重新开启 USB 调试）。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>编辑器无法应用主题、打不开可能的原因</p>
+<ul>
+<li>连接手机后，若是第一次打开编辑器或新建主题，需要等待一点时间，并非卡机</li>
+<li>添加了插件后，应用失败<ul>
+<li>编辑器 plugin 目录下是否包含你添加的插件，若 plugin 目录不包含添加过的插件会合成失败，可以通过检查主题包内 plugin_config.xml 文件来查看添加过的插件。</li>
+<li>手写的 manifest 文件有语法错误。某行代码内添加了两个相同的属性，比如一行代码内写了两个 X 坐标。或者属性之间原本需要空格分开的缺少空格，都会导致插件应用失败。</li>
+</ul>
+</li>
+<li>其他情况排查步骤如下：<ul>
+<li>检查手机是否打开了 USB 调试，检查步骤：系统设置–全部设置–开发者选项–usb 调试（开），</li>
+<li>打开任务管理器查看是否有多个 adb 进程，建议卸载或关闭其他占用 adb 的进程，或在主题编辑器菜单里点击“修复 adb”（仅 win 下可用）</li>
+<li>驱动程序未安装，下载手机驱动程序，可<a href="https://www.miui.com/shuaji-393.html" target="_blank" rel="noopener">点击这里</a> 下载 miflash 来安装驱动。安装方法：打开 miflash，点击左上角的 Driver 按钮即可自动安装，安装完驱动后如果你不需要了可以直接删除 miflash</li>
+<li>更换 USB 线缆或接口</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>MAC 下使用</p>
+<ul>
+<li>先安装 MAC 版 java 环境。</li>
+<li>由于 mac 安全设置，第一次直接执行 MIUINewThemeEditor.jar 可能不被系统允许，你可以右键选择打开，在弹出的窗口中选择打开编辑器，后续即可双击直接打开了。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>编辑器目录结构不可有空格等特殊字符，最好不要放在中文目录下</li>
+</ul>
+<br>
+<br>
+
+<h2 id="创建主题包"><a href="#创建主题包" class="headerlink" title="创建主题包"></a>创建主题包</h2><video id="example_video_2" class="video-js vjs-default-skin" controls preload="none" style="width:100%; position:relative;" poster="https://gitee.com/mitheme/image/raw/master/video/视频封面.png">
+       <source src="https://cdn.cnbj1.fds.api.mi-img.com/mitheme-blog/vedio/MIUI%E4%B8%BB%E9%A2%98%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B-%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%81%E5%B1%8F.mp4" type="video/mp4">
+</video>
+
+<br>
+<br>
+
+<p><em>新建主题</em><br>点击“新建”按钮，会弹出一个主题信息的弹窗（如图），填完所有信息点击确定即可开始正式的制作主题之旅啦~</p>
+<p><img src="https://gitee.com/mitheme/image/raw/master/ThemeEditor_0.jpg" alt="image"></p>
+<p><img src="https://gitee.com/mitheme/image/raw/master/ThemeEditor_8.jpg" alt="image"></p>
+<br>
+<br>
+
+<br>
+
+<h2 id="编辑器使用"><a href="#编辑器使用" class="headerlink" title="编辑器使用"></a>编辑器使用</h2><p>新建主题之后，编辑器进入编辑界面，如图，顶部为菜单栏，右侧侧边栏可选择编辑的模块</p>
+<p><img src="https://gitee.com/mitheme/image/raw/master/Functionalinterface.jpg" alt="image"></p>
+<p>注意：</p>
+<ul>
+<li>菜单栏的刷新按钮，一般用于修改了内置插件时重建缓存用，否则修改了内置插件不会生效，<a href="/modular">插件的制作教程详见</a></li>
+<li>【专家模式/效率模式】 按钮可切换编辑器编辑模式，在效率模式可以一键在主题中插入一套深色模板，少量修改即可覆盖短信、联系人、设置等界面。专家模式则需要所有的资源自己一个个去手动修改。相比较而言，效率模式更高效，专家模式可定制一些特殊的效果，平时一般推荐在效率模式完成一套主题即可。</li>
+<li>菜单简介<br>点击左上角菜单，弹出一个列表。重点需要了解几个功能，前提是编辑器能正常把主题应用到手机上：<ul>
+<li>导出主题包：这个是上传至主题商店的唯一文件格式（.mtz）,所有主题完成之后都需要导出主题包。</li>
+<li>同步图标/模块：线下编辑器的素材有限，如果在编辑器中找不到手机上显示的图标或者素材，可以直接同步图标/素材，然后去相应的模块找即可。</li>
+<li>编辑信息：主要是更改主题版本，当 UI 版本为 V8 的时候，编辑器展示 MIUI8/9 的界面和素材，当 UI 版本为 V10 的时候，编辑器会展示 MIUI10 系统的界面和素材。</li>
+</ul>
+</li>
+</ul>
+<br>
+<br>
+
+<p><strong>1、创建第一个锁屏</strong></p>
+<p><img src="https://gitee.com/mitheme/image/raw/master/ThemeEditor_1.jpg" alt="image"></p>
+<p><em>插入一个解锁功能</em></p>
+<ul>
+<li>点击第编辑器左侧侧边栏的锁型图标，在插件选择区选择锁屏框架，然后添加一个上划解锁框架，点击插入按钮</li>
+<li>点击编辑器左下角手机形状按钮，即可应用主题到手机。</li>
+<li>解锁一次，然后息屏再开屏，重新回到锁屏。你会发现手机底部有两个小图标。这时候解锁插件应用就成功了。</li>
+</ul>
+<br>
+
+<p>操作完上面的步骤以后，我们发现锁屏其他部分全是黑的，没关系，因为这个时候你只是添加了一个解锁控件，其他控件都还没加呢。<br><em>添加其他插件</em></p>
+<ul>
+<li>添加一张壁纸和一个时钟控件，分别选择【主题壁纸-百变锁屏壁纸-下划切换壁纸】 和 【百变锁屏-锁屏时钟-横向图片时钟】插入</li>
+<li>应用主题后锁屏界面就出现了一张壁纸和一个时钟。</li>
+<li>我们可以用同样的方法给锁屏添加一个负一屏控件或则其他控件，就跟搭积木一样，一个锁屏就构建出来了。</li>
+</ul>
+<br>
+
+<p>上面操作完成后我们发现之前添加的解锁框架底部的两个小图标不见了，原因是你新添加的壁纸把他给盖住了，如上图所示，我们需要对插件的图层进行调整<br><em>插件的图层管理</em></p>
+<ul>
+<li>在编辑器右侧的图层管理区，先选择要调整孙旭的插件，然后点击底部上上下箭头按钮，即可调整插件的顺序</li>
+<li>我们尝试把下滑切换壁纸调整到最顶上，重新应用主题壁纸就不对锁屏其他元素进行遮挡了。</li>
+<li>在编辑器中图层越往上的插件，在锁屏实际显示中则越往下，要想不被其他插件盖住，则在编辑器中把插件调整到另一个插件的下面即可</li>
+</ul>
+<br>
+
+<p>我们还可以对添加的进行个性化定制，替换其中的图片资源，修改模块的各项参数，使插件的样式更符合我们的设计需求<br><em>插件的个性化定制</em></p>
+<ul>
+<li>进入参数编辑器，参数编辑区可选图片资源编辑和参数编辑，我们可以替换插件里的图片资源，也可以修改插件的参数，例如调整插件的坐标、色彩等</li>
+<li>需要注意的是是图片序列的图片资源，因为修改的不是单独一张图片,而是多张图片组成的图片序列。替换时需要把需要替换的图片以’xx_0.jpg’ ‘xx_1.jpg’ ‘xx_2.jpg’ 这样的规则命名（后面的数字及格式与原资源素材相同），然后拉进编辑器如图红色框选区域即可替换对应资源，非图片序列的图片替换时无需特殊命名，只需要格式一致即可。</li>
+</ul>
+<br>
+
+<p>插件中常用参数的修改可参考下表</p>
+<table>
+<thead>
+<tr>
+<th>常用参数名</th>
+<th>对应参数</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>横向对齐（或 X 方向对齐）</td>
+<td>left、 center、right</td>
+<td>居左 居中，居右</td>
+</tr>
+<tr>
+<td>纵向对齐（或 Y 方向对齐）</td>
+<td>top、 center、bottom</td>
+<td>顶部 居中，底部</td>
+</tr>
+<tr>
+<td>可见性</td>
+<td>0 或 1</td>
+<td>0 不可见，1 可见，可用表达式</td>
+</tr>
+<tr>
+<td>透明度</td>
+<td>0~255</td>
+<td>0 为透明度为 0，255 为透明度 100%，可用表达式</td>
+</tr>
+<tr>
+<td>颜色</td>
+<td>#ffffff</td>
+<td>可从 ps 里吸取对应的颜色值</td>
+</tr>
+</tbody></table>
+<br>
+<br>
+
+<p><strong>2、其他界面模块的修改</strong></p>
+<p><img src="https://gitee.com/mitheme/image/raw/master/TutorialPreview/EditorMaterial.png" alt="image"></p>
+<ul>
+<li>添加界面模块<ul>
+<li>点击右侧侧边栏的星星按钮，即可进入编辑器界面编辑功能（星星按钮只在效率模式有，专家模式会把各模块独立展现）</li>
+<li>选择深色模板或浅色模板（浅色模板开发中，暂不可用），人后通过右侧的参数编辑器就可以对界面的图片和颜色进行修改了</li>
+<li>切换到专家模式后，各界面在侧边栏分为独立按钮，点击不同按钮进入到对应界面进行修改</li>
+</ul>
+</li>
+</ul>
+<p>注：效率模式为编辑器中制作界面的全新方式，效率模式内置了一套完整的深色主题模板，模板内已经内置了制作一套深色主题所需要的所有资源，相关颜色值也已打包进模板中，通过模板外漏的相关接口，只需少量修改即可完成界面部分的制作，大大提高制作一套主题的效率。</p>
+<br>
+
+<br>
+
+<br>
+
+<ul>
+<li><p><a href="https://lanhuapp.com/url/zdNpX-PpNXi" target="_blank" rel="noopener">专家模式中常用界面颜色值标注</a></p>
+<ul>
+<li>可以快速查看界面相关区域颜色值（持续维护更新 ing）</li>
+</ul>
+</li>
+<li><p><a href="https://www.miui.com/thread-15629393-1-1.html" target="_blank" rel="noopener">V9 适配 V10 主题教程</a></p>
+</li>
+<li><p>点九图的定义与绘画<br><img src="https://gitee.com/mitheme/image/raw/master/TutorialPreview/Pointnineimage.png" alt="image"><br>上图报错是因点九图绘画不规范导致，点九图是 Android 开发中用到的一种特殊格式的图片，文件名以”.9.png“结尾，这种图片能告诉程序，图像哪一部分可以被拉升，哪一部分不能被拉升需要保持原有比列。<br>通过指定.9 拉伸与显示区域即可实现在素材拉伸后不会降低显示效果；例如一个圆角矩形直接放大会变模糊、通过绘制.9 后就能保证只拉伸圆角内的区域，从而达到最佳的显示效果，<br>具体看<a href="http://wiki.dev.xiaomi.com/index.php?title=%E7%82%B9%E4%B9%9D%E8%AF%A6%E8%A7%A3" target="_blank" rel="noopener">详解</a>。</p>
+</li>
+</ul>
+<br>
+
+<h2 id="主题包结构"><a href="#主题包结构" class="headerlink" title="主题包结构"></a>主题包结构</h2><ul>
+<li>clock_2x4 桌面时钟</li>
+<li>com.miui.home 桌面</li>
+<li>com.android.contacts 拨号与联系人</li>
+<li>com.android.mms 短信</li>
+<li>com.android.settings 设置</li>
+<li>com.android.systemui 通知栏</li>
+<li>framework-miui-res MIUI 全局</li>
+<li>framework-res 安卓原生全局</li>
+<li>icons 桌面图标</li>
+<li>lockscreen 锁屏</li>
+<li>miwallpaper 百变壁纸</li>
+<li>wallpaper 壁纸</li>
+<li>description.xml 主题描述文件</li>
+<li>以上是目前常用的主题包目录结构，包括但不限于这些，随着主题的深化及需求的增加，后续可以尝试更多模块的探索，具体可以参考官方主题。</li>
+</ul>
+
+        
+    </section>
+</article>
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        <footer class="footer">
+	 ©2019 mitheme &nbsp;&nbsp;&nbsp;主题技术交流群:812282219
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e1ca2b4819eb8e6e077f2e6e8fdd2838";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+            
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+        </script>
+    
+
+    
+
+</body>
+</html>

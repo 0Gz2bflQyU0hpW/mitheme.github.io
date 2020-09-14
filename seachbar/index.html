@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+
+    
+
+    
+
+    <title>新版搜索插件适配 | MItheme</title>
+    <meta name="author" content="mitheme">
+    <meta name="version" content="1.0.0">
+    <meta name="keywords" content>
+    <meta name="description" content="由于新版miui11桌面底部新增了系统级的搜索框，原时钟插件添加的搜索框会在桌面生成两个搜索框，所以建议把原时钟插件的搜索框删除。删除方法：1.插件生成的，删除主题包根目录下plugin_config.xml文件中的 标签（旧版插件删除clock2x4模块manifest.xml文件内的标签），然后删除多余资源，再编辑器重新打包上传即可2.自己代码生成的，删除相关代码新版搜索框适配教程com.miui.home模块res/drawable-xxhdpi目录下添加图片资源：bg...">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    
+    <link rel="alternate" href="/atom.xml" title="MItheme" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <main class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">MItheme</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/guide/">
+                <span class="nav-text">入门</span>
+            </a>
+        
+            <a class="nav-item" href="/maml/">
+                <span class="nav-text">语法</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/tutorials">
+                <span class="nav-text">实例</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frame">
+                <span class="nav-text">界面</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/notice">
+                <span class="nav-text">公告</span>
+            </a>
+        
+            <a class="nav-item" href="/shenhe">
+                <span class="nav-text">审核</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <!-- <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value=""></form> -->
+        <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/local_search.js"></script>
+<script type="text/javascript">      
+	var search_path = "search.xml";
+	if (search_path.length == 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+
+
+
+
+
+<style type="text/css">
+/**
+  *放置input的div盒子
+  *1.此处应我的项目需要，加了些特别的设置，如字体、背景色等，按需添加；
+  *2.内层input不加边框，看起来效果会自然一点，所以外层div设置了边框和圆角
+*/
+.searchbox{
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 6px;
+    margin:30px;
+}
+
+
+
+/**
+  *input标签样式
+  *宽度适应外层div
+  *隐藏边框
+  *这里有个小技巧，height与line-height值相等，可保证文字垂直居中；但我发现文字比图标略偏下，进行了微调；
+*/
+.searchbox input{
+    text-indent: 30px;
+    height: 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+}
+
+/**
+  *图标样式
+  *绝对定位，自定义颜色
+*/
+.searchbox i{
+    position: absolute;
+    top: 39px;
+    left: 85px;
+    margin-left: -15%;
+    color: #B2B2B2;
+}
+</style>
+
+
+<div class="searchbox">
+    <form class="site-search-form">
+    	<input type="text" id="local-search-input" class="st-search-input" placeholder="Search">
+		<i class="icon-search-stroke"></i>
+	</form>
+</div>	
+
+<div id="local-search-result" class="local-search-result-cls"></div>
+
+
+
+
+        
+
+
+
+
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#删除方法："><span class="toc-number">1.</span> <span class="toc-text">删除方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新版搜索框适配教程"><span class="toc-number">2.</span> <span class="toc-text">新版搜索框适配教程</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+<article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            新版搜索插件适配
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<a class="article-date" href="/seachbar/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-09-14T04:45:00.318Z" itemprop="datePublished">2020-09-14</time>
+</a>
+
+
+
+<i class="icon-user-stroke" style="color: #999;margin-left: 25px"></i>
+ <font color="#999">阅读量：<span id="busuanzi_value_page_pv"></span></font>
+
+
+
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/公告/">公告</a>
+</div>
+
+
+        </div>
+    </header>
+    
+
+    
+
+
+
+
+    <section class="article-body markdown-body">
+        
+        <br>
+<a id="more"></a>
+
+
+<p>由于新版miui11桌面底部新增了系统级的搜索框，原时钟插件添加的搜索框会在桌面生成两个搜索框，所以建议把原时钟插件的搜索框删除。</p>
+<h3 id="删除方法："><a href="#删除方法：" class="headerlink" title="删除方法："></a>删除方法：</h3><p>1.插件生成的，删除主题包根目录下plugin_config.xml文件中的 <clock_2x4_searchbar>标签（旧版插件删除clock2x4模块manifest.xml文件内的<searchbar>标签），然后删除多余资源，再编辑器重新打包上传即可<br>2.自己代码生成的，删除相关代码</searchbar></clock_2x4_searchbar></p>
+<h3 id="新版搜索框适配教程"><a href="#新版搜索框适配教程" class="headerlink" title="新版搜索框适配教程"></a>新版搜索框适配教程</h3><p>com.miui.home模块res/drawable-xxhdpi目录下添加图片资源：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bg_search_bar_dark.png（搜索框背景，深色壁纸）</span><br><span class="line">bg_search_bar_light.png（搜索框背景，浅色壁纸）</span><br><span class="line"></span><br><span class="line">icon_search_dark.png（搜索icon，深色壁纸）</span><br><span class="line">icon_search_light.png（搜索icon，浅色壁纸</span><br><span class="line">icon_xiaoai_dark.png（小爱icon，深色壁纸）</span><br><span class="line">icon_xiaoai_light.png（小爱icon，浅色壁纸）</span><br></pre></td></tr></table></figure>
+
+<p>为适配各种壁纸场景，建议深色和浅色同时做</p>
+<p>如果仍然使用原搜索框样式，只修改颜色：可以更改以下元素颜色：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> &lt;color name=&quot;search_bar_bg_color_dark&quot;&gt;#D9FFFFFF&lt;/color&gt;</span><br><span class="line"> &lt;color name=&quot;search_bar_bg_color_light&quot;&gt;#D9000000&lt;/color&gt;</span><br><span class="line">（背景颜色，默认#D9FFFFFF）</span><br><span class="line"></span><br><span class="line"> &lt;color name=&quot;search_bar_fd_color_dark&quot;&gt;#11000000&lt;/color&gt;</span><br><span class="line"> &lt;color name=&quot;search_bar_fd_color_light&quot;&gt;#11ffffff&lt;/color&gt;</span><br><span class="line">（color：点击时波纹颜色，默认#11000000）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> &lt;dimen name=&quot;search_bar_stroke_width_dark&quot;&gt;1dp&lt;/dimen&gt;</span><br><span class="line"> &lt;dimen name=&quot;search_bar_stroke_width_light&quot;&gt;1dp&lt;/dimen&gt;</span><br><span class="line">（dimens：边框大小，默认1dp）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> &lt;color name=&quot;search_bar_stroke_color_dark&quot;&gt;#14000000&lt;/color&gt;</span><br><span class="line"> &lt;color name=&quot;search_bar_stroke_color_light&quot;&gt;#14ffffff&lt;/color&gt;</span><br><span class="line">（color：边框颜色，默认：#14000000）</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ts.market.mi-img.com/download/ThemeMarket/0443442ce52176e3c498fec1a502958e74b40fe8c/file.jpg" alt="image"></p>
+
+        
+    </section>
+</article>
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+
+
+
+    <!--Leancloud 操作库:-->
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <!--Valine 的核心代码库:-->
+    <script src="//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script>
+
+    <div class="comment"></div>
+    <script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment', // 
+            app_id: 'RdQLv2ywe8uqpfSoY5ieIfkk-gzGzoHsz', 
+            app_key: 'gNovkG2NHNvu5do7ft3DJOhC', 
+            placeholder: '添加评论' 
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+</div>
+        <footer class="footer">
+	 ©2019 mitheme &nbsp;&nbsp;&nbsp;主题技术交流群:812282219
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e1ca2b4819eb8e6e077f2e6e8fdd2838";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+            
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+        </script>
+    
+
+    
+
+</body>
+</html>
