@@ -29,31 +29,6 @@
     
     
     <entry>
-      <title>锁屏框架 插件介绍</title>
-      <link href="plugins/"/>
-      <url>plugins/</url>
-      
-        <content type="html"><![CDATA[<br><p><strong>锁屏框架 插件介绍</strong></p><a id="more"></a><img src="https://gitee.com/mitheme/image/raw/master/plugins/frame.png"><p><strong>插件依次为：</strong></p><ul><li>工具负一屏(包含框架)</li><li>上滑解锁(包含框架)</li><li>经典负一屏</li></ul><p>注意：添加了工具负一屏后无需再添加上划解锁框架。<br>经典负一屏使用时可以把X坐标写成-1080，这样就会在负一屏的位置显示经典负一屏。</p><p>【工具负一屏】和【上划解锁的插件】输出两个全局变量如下，可以用于关联其他的插件，比如在 我们在 音乐插件x坐标 加上 #defaultScreen_x ，音乐插件可以跟随左右移动等。</p><table><thead><tr><th align="center">属性</th><th align="center">释义</th></tr></thead><tbody><tr><td align="center">defaultScreen_x</td><td align="center">左右滑动 距离</td></tr><tr><td align="center">defaultScreen_y</td><td align="center">上滑解锁 距离</td></tr></tbody></table>]]></content>
-      
-      
-      <categories>
-          
-          <category> themedite </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> MAML算法实例 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>锁屏进入相机方式-小贴士</title>
       <link href="openCamera/"/>
       <url>openCamera/</url>
@@ -96,6 +71,31 @@
         <tags>
             
             <tag> 公告 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>锁屏框架 插件介绍</title>
+      <link href="plugins/"/>
+      <url>plugins/</url>
+      
+        <content type="html"><![CDATA[<br><p><strong>锁屏框架 插件介绍</strong></p><a id="more"></a><img src="https://gitee.com/mitheme/image/raw/master/plugins/frame.png"><p><strong>插件依次为：</strong></p><ul><li>工具负一屏(包含框架)</li><li>上滑解锁(包含框架)</li><li>经典负一屏</li></ul><p>注意：添加了工具负一屏后无需再添加上划解锁框架。<br>经典负一屏使用时可以把X坐标写成-1080，这样就会在负一屏的位置显示经典负一屏。</p><p>【工具负一屏】和【上划解锁的插件】输出两个全局变量如下，可以用于关联其他的插件，比如在 我们在 音乐插件x坐标 加上 #defaultScreen_x ，音乐插件可以跟随左右移动等。</p><table><thead><tr><th align="center">属性</th><th align="center">释义</th></tr></thead><tbody><tr><td align="center">defaultScreen_x</td><td align="center">左右滑动 距离</td></tr><tr><td align="center">defaultScreen_y</td><td align="center">上滑解锁 距离</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> themedite </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MAML算法实例 </tag>
             
         </tags>
       
@@ -722,10 +722,10 @@
     
     <entry>
       <title></title>
-      <link href="home/index.html"/>
-      <url>home/index.html</url>
+      <link href="guide/index.html"/>
+      <url>guide/index.html</url>
       
-        <content type="html"><![CDATA[<!-- ---title: MORE & MAML 概述--- --><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>** MAML引擎脚本语言 **<br>   MIUI Application Markup Language for MORE （MIUI MORE引擎应用标记语言）</p><p>** MORE渲染引擎 **<br>   Markup Oriented Rendering Engine （基于标记语言的渲染引擎） </p><a id="more"></a><p>最初用于百变锁屏，使用xml用特定的语法描述锁屏界面。后来不断增强功能，逐步演化成一套接近通用的界面描述语言和图形渲染引擎，在一定需求下可用于开发风格多变的用户界面。可方便地通过更换皮肤改变界面风格、动画甚至交互方式。<br>MAML语言和Android的界面描述xml 类似. 所不同的是Android描述的是静态界面，对界面元素的更改依赖java代码。MAML描述的是静态界面+动态属性，UI在时间线上按一定的帧率不断刷新，UI显示根据元素属性的变量表达式的计算结果实时更新。MAML语言和运行时引擎已经从锁屏中独立出来作为MIUI内置的通用框架，除了显示时间日期等，还支持查询标准Content Provider来获取各种信息如天气。显示图片文本等各种元素，各种动画，滑动点击等界面交互控件，适于实现展示信息或有简单交互操作的界面。比如时钟、天气小部件、闹钟响铃界面。<br>框架支持动态帧率，不必按照固定帧率不停渲染，在没有动画和更新的时侯停止渲染，此时仅占用极少资源，对于缓慢变化的动画使用低帧率渲染，高动态的动画开始后立即调整到高帧率全速渲染。全速渲染时全屏帧率基本可以达到60帧。合理使用可以既炫酷又不费电。<br><br></p><h2 id="适用界面"><a href="#适用界面" class="headerlink" title="适用界面"></a>适用界面</h2><ol><li>展示性的信息，如图片，文字 （不适合列表信息和大段文本，不适合用户输入）</li><li>需要有丰富的界面动画及交互动画。</li><li>较简单的交互，拖拽、点击 （但不限于拖拽点击，通过xml代码可以实现部分类似java编程中onTouchEvent所能做到的交互）</li><li>使用标准控件无法实现的信息展示方式，或者无法实现的交互方式，需要自制控件的，大部分可以通过xml代码方便地描述实现。</li><li>需要灵活更换皮肤风格，并且界面动画和交互动画甚至部分交互方式都可以通过皮肤更换。无需更改应用程序。</li><li>比如一些简单的工具类应用程序、无输入的操作界面希望能更换操作模式（例如来电接听界面）和桌面小工具可以考虑使用，也可以作为一个动画框架实现类似电子贺卡的界面，可支持交互，做为应用程序中的彩蛋（比如短信中的生日彩蛋）</li></ol><ul><li><strong>MIUI主题使用MORE的模块</strong></li></ul><table><thead><tr><th>名称</th><th>主题包对应模块</th></tr></thead><tbody><tr><td>百变锁屏</td><td>LockScreen</td></tr><tr><td>桌面时钟</td><td>clock_2x4</td></tr><tr><td>百变壁纸</td><td>MiWallpaper</td></tr><tr><td>动态图标</td><td>icon</td></tr><tr><td>自由桌面</td><td>clock_2x4</td></tr></tbody></table>]]></content>
+        <content type="html"><![CDATA[<!-- ---title: 入门教程--- --><h1 id="MIUI-主题编辑器使用教程"><a href="#MIUI-主题编辑器使用教程" class="headerlink" title="MIUI 主题编辑器使用教程"></a>MIUI 主题编辑器使用教程</h1><h3 id="一、如何用编辑器快速的创建一个新的主题"><a href="#一、如何用编辑器快速的创建一个新的主题" class="headerlink" title="一、如何用编辑器快速的创建一个新的主题"></a>一、如何用编辑器快速的创建一个新的主题</h3><!-- ![image](https://gitee.com/dzzzw/tutorial_material/raw/master/ThemeEditor_0.jpg) --><img src="https://gitee.com/dzzzw/tutorial_material/raw/master/ThemeEditor_0.jpg" width="1000"><br><p>点击新建按钮弹出新建主题弹窗,写入相关信息即可创建一个主题项目</p><!-- ![image](https://gitee.com/dzzzw/tutorial_material/raw/master/ThemeEditor_8.jpg) --><img src="https://gitee.com/dzzzw/tutorial_material/raw/master/ThemeEditor_8.jpg" width="1000"><br><p>我们先来创建一个锁屏。点击右边栏的锁屏按钮，进入到锁屏编辑界面。我们先给锁屏添加一张可交互的动态壁纸</p><!-- ![image](https://gitee.com/dzzzw/tutorial_material/raw/master/Group%203.png) --><img src="https://gitee.com/dzzzw/tutorial_material/raw/master/Group%203.png" width="1000"><p><strong>主要操作步骤及注意点</strong></p><ol><li><p>如图，我们依次点击锁屏按钮，选择壁纸模块的百变壁纸，此时右侧出现了很多百变壁纸的样式，我们选择其中一个样式就行了，比如选择滑动壁纸样式，然后点击右侧的插入按钮就插入成功了。</p></li><li><p>用数据线连上手机后（手机需开启USB调试，并安装好手机相关的驱动程序），点击应用主题就可以把刚刚添加的这个效果在锁屏上展现。应用成功后，在锁屏底部可以看到了一根细横线，沿着细横线区域从底部上划，我们就左右滑动切换壁纸了，无需任何编程，你就实现了一个百变锁屏的壁纸切换功能了！</p></li><li><p>按照上图第四步选择滑动切换壁纸图层，界面中就出现了这个插件所有相关的参数及素材替换，我们可以按照自己的需求来自定义这个壁纸的样式，比如底部细横线默认是白色的，你可以绘制一张自己喜欢的样式的图片拉进编辑器细横线图片对应的位置进行替换。</p></li><li><p>需要注意的是壁纸是图片序列，并不是单独一张图片,而是多张图片序列，你只需要把你需要替换的图片以’xx_0.jpg’ ‘xx_1.jpg’  ‘xx_2.jpg’ 这样的规则命名，然后拉进编辑器壁纸对应的位置就可以对壁纸进行替换和修改了，这时候你点击壁纸进入到替换后的壁纸文件夹，你会发现里面的素材已经是你替换过后的壁纸序列了。点击应用主题，手机上将换成你自己定义的壁纸。</p></li><li><p>下面还有更多的参数，你可以试着修改看看，注意，上图插件细线Y坐标中#screen_height-60，表示为屏幕高度位置往上走60个像素，这样可以自动适配全面屏。锁屏中所有坐标均基于像素进行定位，默认分辨率为1080P<br>附，锁屏坐标系</p><!--![image](https://gitee.com/dzzzw/tutorial_material/raw/master/coordinate.jpg)--></li></ol><img src="https://gitee.com/dzzzw/tutorial_material/raw/master/coordinate.jpg" height="500"><br><br><p>其他常用参数的修改可参考下表</p><table><thead><tr><th>常用参数名</th><th>对应参数</th><th>释义</th></tr></thead><tbody><tr><td>横向对齐</td><td>left、 center、right</td><td>居左 居中，居右</td></tr><tr><td>纵向对齐</td><td>top、 center、bottom</td><td>顶部 居中，底部</td></tr><tr><td>可见性</td><td>0或1</td><td>0不可见，1可见</td></tr><tr><td>透明度</td><td>0~255</td><td>0为透明度为0，255为透明度100%</td></tr><tr><td>颜色</td><td>#ffffff</td><td>可从ps里吸取对应的颜色值</td></tr></tbody></table><br>上面我们添加了一个壁纸，我们还可以添加一个锁屏框架控件。点击锁屏框架，然后选择默认锁屏框架，插入后应用到手机，这时候我们的锁屏可以左右滑动，并可以上划解锁了。同时我们可以继续添加锁屏时钟、锁屏音乐等其他控件，甚至在锁屏负一屏也可以添加一些组件，怎么样就跟搭积木一样，一个锁屏就这样搭建起来了。]]></content>
       
     </entry>
     
@@ -733,10 +733,10 @@
     
     <entry>
       <title></title>
-      <link href="guide/index.html"/>
-      <url>guide/index.html</url>
+      <link href="home/index.html"/>
+      <url>home/index.html</url>
       
-        <content type="html"><![CDATA[<!-- ---title: 入门教程--- --><h1 id="MIUI-主题编辑器使用教程"><a href="#MIUI-主题编辑器使用教程" class="headerlink" title="MIUI 主题编辑器使用教程"></a>MIUI 主题编辑器使用教程</h1><h3 id="一、如何用编辑器快速的创建一个新的主题"><a href="#一、如何用编辑器快速的创建一个新的主题" class="headerlink" title="一、如何用编辑器快速的创建一个新的主题"></a>一、如何用编辑器快速的创建一个新的主题</h3><!-- ![image](https://gitee.com/dzzzw/tutorial_material/raw/master/ThemeEditor_0.jpg) --><img src="https://gitee.com/dzzzw/tutorial_material/raw/master/ThemeEditor_0.jpg" width="1000"><br><p>点击新建按钮弹出新建主题弹窗,写入相关信息即可创建一个主题项目</p><!-- ![image](https://gitee.com/dzzzw/tutorial_material/raw/master/ThemeEditor_8.jpg) --><img src="https://gitee.com/dzzzw/tutorial_material/raw/master/ThemeEditor_8.jpg" width="1000"><br><p>我们先来创建一个锁屏。点击右边栏的锁屏按钮，进入到锁屏编辑界面。我们先给锁屏添加一张可交互的动态壁纸</p><!-- ![image](https://gitee.com/dzzzw/tutorial_material/raw/master/Group%203.png) --><img src="https://gitee.com/dzzzw/tutorial_material/raw/master/Group%203.png" width="1000"><p><strong>主要操作步骤及注意点</strong></p><ol><li><p>如图，我们依次点击锁屏按钮，选择壁纸模块的百变壁纸，此时右侧出现了很多百变壁纸的样式，我们选择其中一个样式就行了，比如选择滑动壁纸样式，然后点击右侧的插入按钮就插入成功了。</p></li><li><p>用数据线连上手机后（手机需开启USB调试，并安装好手机相关的驱动程序），点击应用主题就可以把刚刚添加的这个效果在锁屏上展现。应用成功后，在锁屏底部可以看到了一根细横线，沿着细横线区域从底部上划，我们就左右滑动切换壁纸了，无需任何编程，你就实现了一个百变锁屏的壁纸切换功能了！</p></li><li><p>按照上图第四步选择滑动切换壁纸图层，界面中就出现了这个插件所有相关的参数及素材替换，我们可以按照自己的需求来自定义这个壁纸的样式，比如底部细横线默认是白色的，你可以绘制一张自己喜欢的样式的图片拉进编辑器细横线图片对应的位置进行替换。</p></li><li><p>需要注意的是壁纸是图片序列，并不是单独一张图片,而是多张图片序列，你只需要把你需要替换的图片以’xx_0.jpg’ ‘xx_1.jpg’  ‘xx_2.jpg’ 这样的规则命名，然后拉进编辑器壁纸对应的位置就可以对壁纸进行替换和修改了，这时候你点击壁纸进入到替换后的壁纸文件夹，你会发现里面的素材已经是你替换过后的壁纸序列了。点击应用主题，手机上将换成你自己定义的壁纸。</p></li><li><p>下面还有更多的参数，你可以试着修改看看，注意，上图插件细线Y坐标中#screen_height-60，表示为屏幕高度位置往上走60个像素，这样可以自动适配全面屏。锁屏中所有坐标均基于像素进行定位，默认分辨率为1080P<br>附，锁屏坐标系</p><!--![image](https://gitee.com/dzzzw/tutorial_material/raw/master/coordinate.jpg)--></li></ol><img src="https://gitee.com/dzzzw/tutorial_material/raw/master/coordinate.jpg" height="500"><br><br><p>其他常用参数的修改可参考下表</p><table><thead><tr><th>常用参数名</th><th>对应参数</th><th>释义</th></tr></thead><tbody><tr><td>横向对齐</td><td>left、 center、right</td><td>居左 居中，居右</td></tr><tr><td>纵向对齐</td><td>top、 center、bottom</td><td>顶部 居中，底部</td></tr><tr><td>可见性</td><td>0或1</td><td>0不可见，1可见</td></tr><tr><td>透明度</td><td>0~255</td><td>0为透明度为0，255为透明度100%</td></tr><tr><td>颜色</td><td>#ffffff</td><td>可从ps里吸取对应的颜色值</td></tr></tbody></table><br>上面我们添加了一个壁纸，我们还可以添加一个锁屏框架控件。点击锁屏框架，然后选择默认锁屏框架，插入后应用到手机，这时候我们的锁屏可以左右滑动，并可以上划解锁了。同时我们可以继续添加锁屏时钟、锁屏音乐等其他控件，甚至在锁屏负一屏也可以添加一些组件，怎么样就跟搭积木一样，一个锁屏就这样搭建起来了。]]></content>
+        <content type="html"><![CDATA[<!-- ---title: MORE & MAML 概述--- --><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>** MAML引擎脚本语言 **<br>   MIUI Application Markup Language for MORE （MIUI MORE引擎应用标记语言）</p><p>** MORE渲染引擎 **<br>   Markup Oriented Rendering Engine （基于标记语言的渲染引擎） </p><a id="more"></a><p>最初用于百变锁屏，使用xml用特定的语法描述锁屏界面。后来不断增强功能，逐步演化成一套接近通用的界面描述语言和图形渲染引擎，在一定需求下可用于开发风格多变的用户界面。可方便地通过更换皮肤改变界面风格、动画甚至交互方式。<br>MAML语言和Android的界面描述xml 类似. 所不同的是Android描述的是静态界面，对界面元素的更改依赖java代码。MAML描述的是静态界面+动态属性，UI在时间线上按一定的帧率不断刷新，UI显示根据元素属性的变量表达式的计算结果实时更新。MAML语言和运行时引擎已经从锁屏中独立出来作为MIUI内置的通用框架，除了显示时间日期等，还支持查询标准Content Provider来获取各种信息如天气。显示图片文本等各种元素，各种动画，滑动点击等界面交互控件，适于实现展示信息或有简单交互操作的界面。比如时钟、天气小部件、闹钟响铃界面。<br>框架支持动态帧率，不必按照固定帧率不停渲染，在没有动画和更新的时侯停止渲染，此时仅占用极少资源，对于缓慢变化的动画使用低帧率渲染，高动态的动画开始后立即调整到高帧率全速渲染。全速渲染时全屏帧率基本可以达到60帧。合理使用可以既炫酷又不费电。<br><br></p><h2 id="适用界面"><a href="#适用界面" class="headerlink" title="适用界面"></a>适用界面</h2><ol><li>展示性的信息，如图片，文字 （不适合列表信息和大段文本，不适合用户输入）</li><li>需要有丰富的界面动画及交互动画。</li><li>较简单的交互，拖拽、点击 （但不限于拖拽点击，通过xml代码可以实现部分类似java编程中onTouchEvent所能做到的交互）</li><li>使用标准控件无法实现的信息展示方式，或者无法实现的交互方式，需要自制控件的，大部分可以通过xml代码方便地描述实现。</li><li>需要灵活更换皮肤风格，并且界面动画和交互动画甚至部分交互方式都可以通过皮肤更换。无需更改应用程序。</li><li>比如一些简单的工具类应用程序、无输入的操作界面希望能更换操作模式（例如来电接听界面）和桌面小工具可以考虑使用，也可以作为一个动画框架实现类似电子贺卡的界面，可支持交互，做为应用程序中的彩蛋（比如短信中的生日彩蛋）</li></ol><ul><li><strong>MIUI主题使用MORE的模块</strong></li></ul><table><thead><tr><th>名称</th><th>主题包对应模块</th></tr></thead><tbody><tr><td>百变锁屏</td><td>LockScreen</td></tr><tr><td>桌面时钟</td><td>clock_2x4</td></tr><tr><td>百变壁纸</td><td>MiWallpaper</td></tr><tr><td>动态图标</td><td>icon</td></tr><tr><td>自由桌面</td><td>clock_2x4</td></tr></tbody></table>]]></content>
       
     </entry>
     
